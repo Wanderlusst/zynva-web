@@ -1,0 +1,289 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  html {
+  
+    scroll-behavior: smooth;
+    -webkit-scroll-behavior: smooth;
+    -moz-scroll-behavior: smooth;
+    -ms-scroll-behavior: smooth;
+    -o-scroll-behavior: smooth;
+    scroll-behavior: smooth;
+    scroll-behavior: smooth;
+  }
+}
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  /* color: rgb(var(--foreground-rgb)); */
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Hide scrollbar but maintain scrollability */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Marquee Animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);  /* Dimmed effect for background */
+  transition: background-color 0.3s ease;
+}
+
+/* Modal Container */
+.modal-container {
+  background-color: white;
+  border-radius: 8px;
+  padding: 2rem;
+  width: 90%;
+  max-width: 400px;
+  position: relative;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transform: translateY(0); /* ensures modal is at the center */
+  pointer-events: auto; /* Enable interaction with modal content */
+}
+
+/* Close Button */
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #333;
+  cursor: pointer;
+}
+
+.modal-close:hover {
+  color: #555;
+}
+
+/* Modal Content */
+.modal-content {
+  margin-bottom: 1rem;
+}
+
+.modal-heading {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: red;
+  margin-bottom: 0.5rem;
+}
+
+.modal-description {
+  font-size: 0.875rem;
+  color: #666;
+}
+
+/* HubSpot Form Custom Input Styling */
+#hubspot-form input[type="text"], #hubspot-form input[type="email"], #hubspot-form input[type="tel"], #hubspot-form textarea {
+  background-color: #f7f7f7;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 1rem;
+  width: 100%;
+  font-size: 14px;
+  color: #333;
+  box-sizing: border-box;
+}
+
+.hs_error_rollup .hs-error-msgs{
+  @apply !static;
+}
+
+/* Focus State for Input Fields */
+#hubspot-form input[type="text"]:focus, 
+#hubspot-form input[type="email"]:focus, 
+#hubspot-form input[type="tel"]:focus,
+#hubspot-form textarea:focus {
+  border-color: #8639f8;
+  outline: none;
+}
+
+/* Submit Button */
+
+
+/* Custom Scrollbar for Webkit Browsers */
+::-webkit-scrollbar {
+    width: 10px; /* Width of the entire scrollbar */
+    height: auto; /* Height of the horizontal scrollbar */
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Color of the scrollbar track */
+    border-radius: 10px; /* Rounded corners for the track */
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #656565; /* Color of the scrollbar handle */
+    border-radius: 12px; /* Rounded corners for the handle */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Color of the handle when hovered */
+}
+
+/* //custom styles */
+
+.feature-after{
+  &::after{
+    content: "";
+    position: absolute;
+    width: calc(100vw/2);
+    background-color: rgb(181, 235, 146);
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+}
+
+/* #hubspotForm .submitted-message{
+  display: none;
+} */
+
+#hubspotForm .form-columns-1 .field.hs-form-field .input .hs-input {
+  /* @apply rounded-lg py-3 px-4 shadow-md ; */
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.5rem !important;
+}
+
+#hubspotForm form {
+  @apply flex flex-wrap gap-x-8 gap-y-5;
+}
+
+#hubspotForm fieldset  {
+  margin-bottom: 1rem !important;
+}
+
+#hubspotForm fieldset .legal-consent-container {
+  font-size: 12px !important;
+}
+
+#hubspotForm .hs-submit {
+  @apply block w-full;
+}
+
+
+#hubspotForm .actions input[type='submit'] {
+  @apply block w-full mx-auto tracking-normal text-base mt-2 bg-gray-950 px-4 py-2 rounded text-white hover:cursor-pointer hover:-translate-y-0 transform duration-150;
+}
+
+#hubspotForm .actions {
+  @apply flex justify-center;
+}
+
+#hubspotForm .hs-error-msgs li {
+  @apply text-red-800 text-sm;
+}
+
+#hubspotForm .hs-error-msgs {
+  @apply absolute -bottom-7 w-full h-6 line-clamp-1 overflow-hidden left-0 text-ellipsis;
+}
+
+
+#hubspotForm .hs-form-field {
+  @apply gap-2 relative w-full;
+}
+
+#hubspotForm .hs-form-field .error {
+  @apply border-red-500;
+}
+
+#hubspotForm .hs-form-field label {
+  @apply text-xs;
+  margin-bottom: 0.5rem !important;
+}
+
+
+#hubspotForm .hs-form-field input,
+#hubspotForm .hs-form-field textarea {
+  @apply text-base border py-2 px-4 rounded w-full focus:outline-gray-950;
+}
+
+
+fieldset{
+  width: 100% !important;
+  @apply flex flex-col gap-2 !text-xs;
+}
+
+fieldset .hs-form-field label {
+  margin-bottom: 0.75rem !important;
+  display: inline-block;
+  
+}
+
+@media (min-width: 768px) {
+  fieldset{
+    display: flex !important;
+    flex-direction: row !important;
+  }
+}
+.hs_error_rollup .hs-error-msgs{
+  display: none !important;
+}
+.submitted-message {
+  @apply text-center flex flex-col items-center justify-center;
+  margin-top: 5rem !important;
+  text-align: center !important;
+}
+
+.submitted-message:first-child p {
+   margin-bottom: 1rem !important;
+   font-weight: 500 !important;
+}

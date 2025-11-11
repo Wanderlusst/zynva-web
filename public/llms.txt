@@ -1,0 +1,150 @@
+# llms.txt for Zynva Website
+# Purpose: Help language models understand page sections, hierarchy, and context
+# Last Updated: 2025-11-06
+
+[site]
+name: Zynva
+tagline: AI First Phone System & Practice Growth Platform for Therapy Clinics
+url: https://opalvoice.io
+contact: hello@opalvoice.io
+
+[meta]
+description: Zynva combines an AI-first phone system with intelligent automation to streamline your front desk, track performance, and grow your therapy practice.
+keywords: AI phone system, therapy practice management, EMR integration, front desk automation, patient engagement, referrals AI, benefits verification, healthcare SaaS
+
+[sections]
+
+## HERO
+title: AI First Phone System & Practice Growth Platform
+subtitle: To Track Front Desk Performance and Stay on Top of Every Referral
+body: Zynva combines a powerful phone system with intelligent automation to streamline your front desk and grow your therapy practice.
+cta: Schedule a Walkthrough
+
+---
+
+## FEATURE: Run a Tighter Front Desk
+description: Every missed call or delayed follow-up is revenue slipping away. We help you stop the leak.
+features:
+- AI Phone System
+- Text and Voice Agents
+- Fax and Referrals AI
+- Lead Management Hub
+- Deep Verification™
+
+cta: Schedule a Walkthrough
+
+---
+
+## FEATURE BLOCK: AI Phone System
+headline: A Phone System That Actually Boosts Front Desk Productivity
+bullets:
+- Live transcription & AI summaries that sync to your EHR
+- Auto-tags conversion opportunities for follow-up
+- AI scoring to monitor and coach front desk staff
+- Robust call center features for every practice size and need
+cta: Schedule a Walkthrough
+
+---
+
+## FEATURE BLOCK: Text and Voice Agents
+headline: AI Text and Voice Agents That Fill In the Gaps
+bullets:
+- AI Voice Agents handle bookings, reschedules, and patient inquiries
+- AI SMS Bots confirm and reschedule on the spot
+- Reactivation & waitlist workflows to fill openings and bring patients back into care
+cta: Schedule a Walkthrough
+
+---
+
+## FEATURE BLOCK: Fax and Referrals AI
+headline: A Smarter Fax System That Reads, Routes, and Tracks Every Referral
+bullets:
+- AI parses faxes to capture patient and referral data
+- Intelligent routing to the right team member or EMR workflow
+- Works with your current e-fax or built-in system
+cta: Schedule a Walkthrough
+
+---
+
+## FEATURE BLOCK: Lead Management Hub
+headline: A Unified Inbox That Automagically Captures Leads
+bullets:
+- Track and book every opportunity in one place
+- Manage Prior Auth, waitlists, and staff tasks via custom boards
+- Call, text, or check benefits directly from the inbox
+cta: Schedule a Walkthrough
+
+---
+
+## FEATURE BLOCK: Deep Verification™
+headline: Deep Eligibility and Benefits Checks That End the Cycle of Doubt
+bullets:
+- Combines multiple sources for complete and reliable eligibility checks
+- Syncs reports back to your EMR at the click of a button
+- Customizable benefits questionnaires built for your workflow
+cta: Schedule a Walkthrough
+
+---
+
+## SECTION: Work Directly From Zynva — No Context Switching
+headline: Handle critical workflows without leaving the platform
+features:
+- Create Patients: Add new patients with auto-populated data. Two-way sync.
+- Open Cases: Create cases directly from Zynva. Instant updates.
+- Update Benefits: Push Deep Verification™ reports straight to your EMR. No copy-paste.
+- Pull Patient Data: Access profiles and appointment data for AI-driven follow-ups.
+note: Works with any therapy EMR — WebPT, Raintree, Clinicient, and more.
+
+cta: Schedule a Walkthrough
+
+---
+
+## INTEGRATIONS
+headline: Works With Your Therapy EMR
+description: Deep integrations with the systems you already rely on.
+logos:
+- WebPT
+- Raintree
+- Clinicient
+- Prompt
+- Jane
+- Athena
+- eClinicalWorks
+
+cta: Request an Integration
+
+---
+
+## OFFER: Free Workflow Audit
+headline: Get a Front Desk Workflow Audit — 100% Free, No Obligation
+description: Expert advice on optimizing your front desk, whether or not you use Zynva.
+byline: Dan Johnson, DPT — Founder, Total Balance Physical Therapy & Enhanced Therapy Solutions
+value:
+- Identify workflow bottlenecks
+- Get actionable recommendations
+- No sales pitch, just value
+cta: Schedule a Walkthrough
+
+---
+
+## FAQ
+headline: Frequently Asked Questions
+questions:
+- How does Zynva integrate with my existing EMR?
+- Can I use Zynva if I already have a phone system?
+- How long does implementation take?
+- What makes Zynva different from other phone systems?
+- How does pricing work?
+- Is my patient data secure?
+
+contact: hello@opalvoice.io
+
+---
+
+## FOOTER
+cta: Ready to Supercharge Your Practice Growth? Book a Demo to Learn How.
+buttons: Schedule a Walkthrough
+links:
+- Privacy Policy
+- Terms of Service
+copyright: © 2025 Zynva. All rights reserved.
