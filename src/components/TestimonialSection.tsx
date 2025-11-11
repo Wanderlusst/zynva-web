@@ -124,7 +124,7 @@ export default function TestimonialSection({ testimonialsSection }: Props) {
         {cta.scheduleLink && (
           <div className="flex justify-center ">
             <Button 
-              type="primary"
+              type="primaryV3"
               link="/schedule"
               target="_blank"
               onClick={() => {

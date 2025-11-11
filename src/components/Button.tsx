@@ -3,7 +3,7 @@ import Link from 'next/link'
 import React from 'react'
 
 interface ButtonProps {
-  type?: 'primary' | 'primarySm' | 'secondary' | 'underline'  | 'video'
+  type?: 'primary' | 'primarySm' | 'primaryV3' | 'secondary' | 'underline'  | 'video'
   alter?: 'bgWhite' | 'borderWhite' | 'disabled' | 'default'
   children?: React.ReactNode
   link?: any
@@ -12,6 +12,7 @@ interface ButtonProps {
   [x: string]: any
   className?: string
   locale?: string | false
+  onClick?: () => void
 }
 
 const Button: React.FunctionComponent<ButtonProps> = ({
@@ -23,14 +24,19 @@ const Button: React.FunctionComponent<ButtonProps> = ({
   target,
   className,
   locale,
+  onClick,
   ...rest
 }) => {
-  const baseClasses = `relative inline-block rounded-[8px] text-gray-950 font-geist font-medium leading-[24px] flex items-center tracking-wide justify-center whitespace-nowrap gap-[8px] transition-all duration-300 ease-linear 
-  [&>*]:relative 
-  [&>span]:text-[#030712] [&>span]:font-geist [&>span]:text-base [&>span]:font-medium [&>span]:leading-6 [&>span]:tracking-normal 
-  [&_span]:text-[#030712] [&_span]:font-geist [&_span]:text-base [&_span]:font-medium [&_span]:leading-6 [&_span]:tracking-normal 
-  ${className}`
-  // const customClasses = `bg-zinc-500 hover:bg-zinc-600 text-white`;
+  const baseClasses = clsx(
+    'relative inline-flex items-center justify-center whitespace-nowrap gap-[8px] transition-all duration-300 ease-linear',
+    {
+      'rounded-[8px] text-gray-950 font-geist font-medium leading-[24px] tracking-wide [&>*]:relative [&>span]:text-[#030712] [&>span]:font-geist [&>span]:text-base [&>span]:font-medium [&>span]:leading-6 [&>span]:tracking-normal [&_span]:text-[#030712] [&_span]:font-geist [&_span]:text-base [&_span]:font-medium [&_span]:leading-6 [&_span]:tracking-normal':
+        type !== 'primaryV3' && type !== undefined,
+      'rounded-[80px] bg-[#9bdabb] h-[55px] px-[32px] [&>span]:font-manrope [&>span]:font-semibold [&>span]:text-[18px] [&>span]:text-black [&>span]:leading-normal [&_span]:font-manrope [&_span]:font-semibold [&_span]:text-[18px] [&_span]:text-black [&_span]:leading-normal':
+        type === 'primaryV3',
+    }
+  )
+  
   const customClasses = clsx({
     'px-6 py-2.5 before:content-[""] before:absolute before:inset-[1px] before:rounded-[8px] before:border before:border-white/10 before:bg-[#B5EB92] p-[1px] text-base bg-gradient-to-r from-[#B5EB92] to-white shadow-[0_0_0_1px_#92D96A] hover:shadow-[0_0_0_2px_#92D96A] hover:from-white hover:to-[#B5EB92]':
       type === 'primary',
@@ -52,6 +58,7 @@ const Button: React.FunctionComponent<ButtonProps> = ({
           href={link}
           className={combinedClasses}
           target={target}
+          onClick={onClick}
           {...rest}
         >
           {children}
@@ -61,7 +68,7 @@ const Button: React.FunctionComponent<ButtonProps> = ({
   }
 
   return (
-    <button className={combinedClasses} {...rest}>
+    <button className={combinedClasses} onClick={onClick} {...rest}>
       {children}
     </button>
   )

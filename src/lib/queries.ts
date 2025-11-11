@@ -11,6 +11,7 @@ import type {
   IntegrationData,
   IntegrationSectionData,
   LogoCloudData,
+  ProcessSectionData,
   TestimonialsSectionData} from '@/types/cms'
 
 import { getSimpleImage } from './media-utils'
@@ -137,10 +138,11 @@ export class LayoutQueries extends BaseQuery {
       *[_type == "header" && language == $language][0] {
         _id,
         title,
-        logo {
+        logoImage {
           asset->{
             _id,
             _type,
+            _ref,
             url,
             metadata
           },
@@ -679,6 +681,47 @@ export class SectionQueries extends BaseQuery {
     `
     return this.client.fetch(query)
   }
+
+  // Get process section data
+  async getProcessSection(): Promise<ProcessSectionData | null> {
+    const query = `
+      *[_type == "dynamicContent" && contentType == "process-section"][0] {
+        _id,
+        title,
+        contentType,
+        slug,
+        headline,
+        headlineRich[]{
+          children[]{
+            _type,
+            text,
+            marks
+          },
+          style,
+          markDefs[]
+        },
+        description,
+        subheading,
+        steps[]{
+          title,
+          description,
+          icon{
+            asset->{
+              _id,
+              _type,
+              url,
+              metadata
+            },
+            alt
+          },
+          order
+        } | order(order asc),
+        _createdAt,
+        _updatedAt
+      }
+    `
+    return this.client.fetch(query)
+  }
 }
 
 // Miscellaneous queries class
@@ -742,6 +785,7 @@ export class Queries extends BaseQuery {
         testimonialsSection,
         logoCloud,
         faqSection,
+        processSection,
         header,
         footer,
         seoSettings,
@@ -755,6 +799,7 @@ export class Queries extends BaseQuery {
         this.sections.getTestimonialsSection(),
         this.sections.getLogoCloud(),
         this.sections.getFAQSection(),
+        this.sections.getProcessSection(),
         this.layout.getHeader(),
         this.layout.getFooter(),
         this.sections.getSEOSettings(),
@@ -770,6 +815,7 @@ export class Queries extends BaseQuery {
         testimonialsSection,
         logoCloud,
         faqSection,
+        processSection,
         header,
         footer,
         seoSettings,

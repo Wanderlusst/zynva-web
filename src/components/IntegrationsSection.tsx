@@ -168,7 +168,7 @@ export default function IntegrationsSection({ integrationData }: IntegrationsSec
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-center justify-center ">
           {cta.scheduleLink && (
             <Button
-              type="primary"
+              type="primaryV3"
               link="/schedule"
               target="_blank"
               onClick={() => {
@@ -179,7 +179,7 @@ export default function IntegrationsSection({ integrationData }: IntegrationsSec
               }}
               className="w-full sm:w-auto"
             >
-              <span className="text-gray-950"> Schedule a Walkthrough</span>
+              <span>Schedule a Walkthrough</span>
             </Button>
           )}
           <button

@@ -5,7 +5,6 @@ import { useEffect, useState } from 'react';
 
 import { useCTA } from '@/contexts/CTAContext';
 import { usePostHog } from '@/hooks/usePostHog';
-import { urlFor } from '@/lib/sanity';
 import type { HeaderData } from '@/types/cms';
 import Button from '../Button';
 import Link from 'next/link';
@@ -40,10 +39,10 @@ export default function Header({ headerData }: HeaderProps) {
               {/* Logo - using CMS data or placeholder */}
               <div className="flex items-center gap-1 max-h-[40px] w-full">
                 <Link href="/">
-                {headerData?.logo?.asset?.url ? (
+                {headerData?.logoImage?.asset?.url ? (
                     <Image
-                      src={headerData.logo.asset.url}
-                      alt={headerData.logo.alt || 'Logo'}
+                      src={headerData.logoImage.asset.url}
+                      alt={headerData.logoImage.alt || 'Logo'}
                       width={100}
                       height={100}
                       className="object-cover max-h-[40px] w-full"
@@ -110,26 +109,26 @@ export default function Header({ headerData }: HeaderProps) {
           </div>
 
           {/* Right Section - CTA Button and Language Selector */}
-          <div className="flex items-center gap-2 sm:gap-3 flex-1 justify-end">
+          <div className="flex items-center justify-end gap-2 sm:gap-3 ">
             {/* CTA Button - Hidden on small screens, visible on medium+ */}
-            {cta.scheduleLink && (
-              <Button 
-                type="primary"
-                link="/schedule"
-                target="_blank"
-                onClick={() => {
-                  trackButtonClick('header_cta', { 
-                    location: 'header', 
-                    button_text: headerData?.ctaButton?.text || cta.primaryButtonText,
-                    action: 'schedule_walkthrough'
-                  })
-                }}
-                className="hidden sm:block"
-                size="sm"
-              >
-                <span>{headerData?.ctaButton?.text || cta.primaryButtonText}</span>
-              </Button>
-            )}
+            <div className="flex gap-[18px] md:pt-0 pt-2 items-start">
+              {cta.scheduleLink && (
+                <Button
+                  type="primaryV3"
+                  link="/schedule"
+                  target="_blank"
+                  onClick={() => {
+                    trackButtonClick('hero_cta', { 
+                      section: 'hero',
+                      button_text: cta.primaryButtonText || 'Try for free',
+                      action: 'schedule_walkthrough'
+                    })
+                  }}
+                >
+                  <span>{cta.primaryButtonText || 'Try for free'}</span>
+                </Button>
+              )}
+            </div>
 
             {/* Language Selector - Hidden on small screens */}
             {/* <div className="hidden sm:block border border-gray-200 rounded-lg p-2">
@@ -215,7 +214,7 @@ export default function Header({ headerData }: HeaderProps) {
               {cta.scheduleLink && (
                 <div className="pt-4">
                   <Button 
-                    type="primary"
+                    type="primaryV3"
                     link="/schedule"
                     target="_blank"
                     onClick={() => {
@@ -226,7 +225,6 @@ export default function Header({ headerData }: HeaderProps) {
                       })
                     }}
                     className="w-full"
-                    size="sm"
                   >
                     <span>{headerData?.ctaButton?.text || cta.primaryButtonText}</span>
                   </Button>

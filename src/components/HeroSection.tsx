@@ -1,10 +1,12 @@
 'use client';
 
+import React from 'react';
 import Image from 'next/image';
 
 import { useCTA } from '@/contexts/CTAContext';
 import { usePostHog } from '@/hooks/usePostHog';
 import { Container, Section } from './structure';
+import Button from './Button';
 
 
 interface HeroSectionProps {
@@ -48,9 +50,19 @@ export default function HeroSection({ heroSectionData }: HeroSectionProps) {
   const description = heroSectionData?.heroSection?.description || "Never at water me might. On formed merits hunted unable merely by mr whence or. Possession the unpleasing simplicity her uncommonly.";
 
   return (
-    <Section className="w-full flex flex-col items-center relative bg-white">
+    <Section className="w-full flex flex-col items-center relative bg-white overflow-hidden">
+      {/* Background Ellipse - Top Right Corner */}
+      <div className="absolute top-0 right-0 w-[60%] h-[40%] pointer-events-none">
+        <div 
+          className="w-full h-full"
+          style={{
+            background: 'radial-gradient(ellipse 100% 100% at 100% 0%, rgba(205, 238, 221, 0.15) 0%, rgba(205, 238, 221, 0.05) 50%, transparent 100%)',
+          }}
+        />
+      </div>
+      
       <Container 
-        className="w-full flex flex-col items-start justify-center md:gap-0 gap-8 py-0 pt-[40px] md:!pb-0 md:px-auto md:!py-0 md:!pt-[118px] md:mt-0 mt-12 !pb-0 relative"
+        className="w-full flex flex-col items-start justify-center md:gap-0 gap-8 py-0 pt-[40px] md:!pb-0 md:px-auto md:!py-0 md:!pt-[118px] md:mt-0 mt-12 !pb-0 relative z-10"
       >
         <div className="w-full flex flex-col md:flex-row gap-[50px] items-start md:items-start relative">
           <div className="flex flex-shrink-0 flex-col gap-[32px] md:px-0 z-10 relative w-full md:w-auto md:max-w-[646px]">
@@ -71,8 +83,9 @@ export default function HeroSection({ heroSectionData }: HeroSectionProps) {
             {/* CTA Button */}
             <div className="flex gap-[18px] md:pt-0 pt-2 items-start">
               {cta.scheduleLink && (
-                <a
-                  href="/schedule"
+                <Button
+                  type="primaryV3"
+                  link="/schedule"
                   target="_blank"
                   onClick={() => {
                     trackButtonClick('hero_cta', { 
@@ -81,17 +94,14 @@ export default function HeroSection({ heroSectionData }: HeroSectionProps) {
                       action: 'schedule_walkthrough'
                     })
                   }}
-                  className="bg-[#05796b] h-[55px] rounded-[80px] shadow-[0px_38px_50px_0px_rgba(5,121,107,0.2)] px-[32px] flex items-center justify-center hover:opacity-90 transition-opacity"
                 >
-                  <span className="font-manrope font-semibold text-[18px] text-white leading-normal">
-                    {cta.primaryButtonText || 'Try for free'}
-                  </span>
-                </a>
+                  <span>{cta.primaryButtonText || 'Try for free'}</span>
+                </Button>
               )}
             </div>
 
             {/* Statistics */}
-            <div className="flex flex-col md:flex-row gap-[50px] items-start pt-[32px]">
+            {/* <div className="flex flex-col md:flex-row gap-[50px] items-start pt-[32px]">
               <div className="flex flex-col items-start">
                 <p className="font-manrope font-bold text-[24px] md:text-[26px] text-[#282828] leading-[48px] md:leading-[52px] tracking-[-1.2px] md:tracking-[-1.3px]">
                   195k+ Users
@@ -108,7 +118,7 @@ export default function HeroSection({ heroSectionData }: HeroSectionProps) {
                   About to in so terms voice at. Equal an would is found seems of and concluded.
                 </p>
               </div>
-            </div>
+            </div> */}
           </div>
 
           {/* Right Side - Image Gallery - Desktop */}
@@ -118,8 +128,7 @@ export default function HeroSection({ heroSectionData }: HeroSectionProps) {
                 <Image
                   src={imagesToUse[0]}
                   alt="Business payments illustration"
-                  className="object-contain w-full h-full object-center"
-                  sizes="(min-width: 768px) 704px, 100vw"
+                  className="object-contain md:max-w-[480px] h-full rounded-2xl object-bottom"
                   width={704}
                   height={653}
                   title="Business payments"

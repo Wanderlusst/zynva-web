@@ -281,10 +281,11 @@ export interface FAQData {
 export interface HeaderData {
   _id: string
   title?: string
-  logo?: {
+  logoImage?: {
     asset: {
       _id: string
       _type: string
+      _ref?: string
       url: string
       metadata?: any
     }
@@ -389,6 +390,36 @@ export interface CTASectionData {
   scheduleLink?: string
 }
 
+export interface ProcessStep {
+  title: string
+  description: string
+  icon?: {
+    asset: {
+      _id: string
+      _type: string
+      url: string
+    }
+    alt?: string
+  }
+  order?: number
+}
+
+export interface ProcessSectionData {
+  _id: string
+  title: string
+  contentType: string
+  slug?: {
+    current: string
+  }
+  headline?: string
+  headlineRich?: RichText[]
+  description?: string
+  subheading?: string
+  steps?: ProcessStep[]
+  _createdAt: string
+  _updatedAt: string
+}
+
 export interface HomepageData {
   heroSection: HeroSectionData | null
   featuresSection: FeatureData[]
@@ -399,6 +430,7 @@ export interface HomepageData {
   logoCloud: LogoCloudData | null
   faqSection: FAQSectionData | null
   faqData: FAQData[]
+  processSection: ProcessSectionData | null
   header: HeaderData | null
   footer: FooterData | null
   seoSettings?: SEOSettings | null

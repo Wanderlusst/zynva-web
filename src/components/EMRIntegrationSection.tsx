@@ -114,7 +114,7 @@ export default function EMRIntegrationSection({ emrIntegrationData }: EMRIntegra
         {cta.scheduleLink && (
           <div className="text-center flex justify-center">
             <Button 
-              type="primary"
+              type="primaryV3"
               link="/schedule"
               target="_blank"
               onClick={() => {

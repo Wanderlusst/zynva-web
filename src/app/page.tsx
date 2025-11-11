@@ -7,7 +7,12 @@ import FlexibilitySection from '@/components/FlexibilitySection';
 import HeroSection from '@/components/HeroSection';
 import IntegrationsSection from '@/components/IntegrationsSection';
 import LogoCloud from '@/components/LogoCloud';
-import TestimonialSection from '@/components/TestimonialSection';
+import AppDownloadSection from '@/components/AppDownloadSection';
+import CTASection from '@/components/CTASection';
+import PricingSection from '@/components/PricingSection';
+import ProcessSection from '@/components/ProcessSection';
+import ServicesSection from '@/components/ServicesSection';
+import TestimonialsSection from '@/components/TestimonialsSection';
 import { generateSEOMetadata } from '@/components/SEOHeader';
 import { Queries } from '@/lib/queries'
 import type { HomepageData, IntegrationSectionData } from '@/types/cms'
@@ -64,6 +69,7 @@ async function getHomepageData(): Promise<HomepageData> {
       logoCloud: null,
       faqSection: null,
       faqData: [],
+      processSection: null,
       header: null,
       footer: null,
       seoSettings: null,
@@ -78,13 +84,13 @@ export default async function Home() {
   return (
     <>
       <HeroSection heroSectionData={data.heroSection as any} />
-      <FeaturesSection featuresSectionData={data.featuresSection} />
-      <EMRIntegrationSection emrIntegrationData={data.emrIntegrationSection} />
-      {/* {data.flexibilitySection && <FlexibilitySection flexibilityData={data.flexibilitySection} />} */}
-      <IntegrationsSection integrationData={data.integrationSection as IntegrationSectionData} />
-      {data.testimonialsSection && <TestimonialSection testimonialsSection={data.testimonialsSection?.[0]} />}
-      {/* {data.logoCloud && data.logoCloud.logos && data.logoCloud.logos.length > 0 && <LogoCloud logoCloudData={data.logoCloud} />} */}
+      <ServicesSection />
+      <ProcessSection />
+      <TestimonialsSection />
+      <CTASection />
+      {data.logoCloud && data.logoCloud.logos && data.logoCloud.logos.length > 0 && <LogoCloud logoCloudData={data.logoCloud} />}
       { <FAQSection faqSectionData={data.faqSection} faqData={data.faqData} />}
+      
     </>
   )
 }

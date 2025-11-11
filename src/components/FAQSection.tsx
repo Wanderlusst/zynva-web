@@ -184,8 +184,8 @@ export default function FAQSection({ faqSectionData, faqData }: FAQSectionProps)
                     }}
                     className={`w-full text-left px-4 py-3 transition-colors border-b border-gray-100 last:border-b-0 ${
                       activeCategory === category.id
-                        ? 'bg-gray-50 text-gray-950 font-medium'
-                        : 'text-gray-600 hover:bg-gray-50'
+                        ? 'bg-[#ffd9d0] text-gray-950 font-medium'
+                        : 'text-gray-600 hover:bg-[#ffd9d0]'
                     }`}
                   >
                     <span className="text-base font-['Geist',_sans-serif]">
@@ -232,7 +232,7 @@ export default function FAQSection({ faqSectionData, faqData }: FAQSectionProps)
                     style={{
                       borderRadius: '16px',
                       border: '1px solid #E5E7EB',
-                      background: isExpanded ? '#E5E7EB' : 'white'
+                      background: isExpanded ? '#ffd9d0' : 'white'
                     }}
                   >
                     <button
