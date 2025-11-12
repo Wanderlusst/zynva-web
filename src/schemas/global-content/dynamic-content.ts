@@ -410,7 +410,6 @@ export const dynamicContent = defineType({
                   title: 'Link',
                   type: 'string',
                   description: 'Link to the integration website or page (URL or relative path)',
-                  validation: (Rule) => Rule.optional(),
                 }),
                 defineField({
                   name: 'color',
@@ -470,7 +469,6 @@ export const dynamicContent = defineType({
                   title: 'Link',
                   type: 'string',
                   description: 'Link to the integration website or page (URL or relative path)',
-                  validation: (Rule) => Rule.optional(),
                 }),
                 defineField({
                   name: 'color',
