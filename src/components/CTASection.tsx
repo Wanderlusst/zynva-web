@@ -12,7 +12,7 @@ export default function CTASection() {
   const { cta } = useCTA();
   
   return (
-    <Section bgColor="white" padding="default" style={{scrollMarginTop: '73px'}}>
+    <Section bgColor="gray" padding="default" style={{scrollMarginTop: '73px'}}>
       <Container className='w-full'>
         <div className="relative bg-[#05796b] rounded-2xl h-[438px] flex flex-col items-center justify-center px-4 md:px-8 overflow-hidden">
           {/* Decorative Vector Elements */}

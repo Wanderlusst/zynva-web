@@ -7,12 +7,13 @@ import { usePostHog } from '@/hooks/usePostHog';
 import { useCTA } from '@/contexts/CTAContext';
 import { Container, Section, SectionHeader } from './structure';
 import Button from './Button';
+import Link from 'next/link';
 
 // Hardcoded testimonials data
 const testimonials = [
   {
-    authorName: 'Danial H',
-    authorTitle: 'CEO GetNextDesign',
+    authorName: 'Anjali K',
+    authorTitle: 'Founder of Hathira Wellness',
     testimonial: 'Is be upon sang fond must shew. Really boy law county she unable her sister. Feet you off its like like six. Among sex are leave law built now.',
     rating: 5,
     imageUrl: null // Will use placeholder
@@ -101,35 +102,24 @@ export default function TestimonialsSection() {
         {/* Testimonial Content */}
         <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12 relative">
           {/* Left Side - Image */}
-          <div className="relative w-full md:w-[402px] h-[479px] rounded-2xl overflow-hidden bg-[#e8f2ff] flex-shrink-0">
-            {/* Placeholder for image - you can replace with actual image */}
-            <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-blue-100 to-blue-200">
-              <div className="text-6xl">👤</div>
-            </div>
-            {/* Navigation Arrow - Left */}
-            <button
-              onClick={handlePrevious}
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 hover:opacity-80 transition-opacity"
-              aria-label="Previous testimonial"
-            >
-              <LeftArrow />
-            </button>
-            {/* Navigation Arrow - Right */}
-            <button
-              onClick={handleNext}
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 hover:opacity-80 transition-opacity"
-              aria-label="Next testimonial"
-            >
-              <RightArrow />
-            </button>
-          </div>
+          <Link
+            href="https://www.hathira-wellness.in/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="relative w-full md:w-[402px] h-full rounded-2xl overflow-hidden flex-shrink-0 transition-all duration-300 hover:invert cursor-pointer"
+          >
+            <Image 
+              src={'https://cdn.sanity.io/images/jni56u7c/develop/174fe4303c8a25004609e073ee46d5baad34d085-640x329.webp'} 
+              alt="Testimonial" 
+              width={402} 
+              height={479}
+              className="transition-all duration-300"
+            />
+          </Link>
 
           {/* Right Side - Testimonial Text */}
           <div className="flex flex-col gap-6 md:max-w-[554px]">
-            {/* Quote Icon */}
-            <div className="mb-2">
-              <QuoteIcon />
-            </div>
+          
 
             {/* Star Rating */}
             <div className="mb-4">

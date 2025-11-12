@@ -65,7 +65,7 @@ export default function ProcessSection() {
   const { cta } = useCTA();
   
   return (
-    <Section bgColor="white" padding="default" style={{scrollMarginTop: '73px'}}>
+    <Section bgColor="gray" padding="default" style={{scrollMarginTop: '73px'}}>
       <Container className='flex flex-col gap-12 md:gap-16'>
         {/* Section Header */}
         <SectionHeader

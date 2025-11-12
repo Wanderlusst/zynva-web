@@ -50,8 +50,8 @@ export default function HeroSection({ heroSectionData }: HeroSectionProps) {
   const description = heroSectionData?.heroSection?.description || "Never at water me might. On formed merits hunted unable merely by mr whence or. Possession the unpleasing simplicity her uncommonly.";
 
   return (
-    <Section className="w-full flex flex-col items-center relative bg-white overflow-hidden">
-      {/* Background Ellipse - Top Right Corner */}
+    <Section className="w-full flex flex-col items-center relative !bg-[#faf6f5] overflow-hidden">
+      {/* Background Ellipse - Top Right Corner */} 
       <div className="absolute top-0 right-0 w-[60%] h-[40%] pointer-events-none">
         <div 
           className="w-full h-full"
@@ -99,31 +99,10 @@ export default function HeroSection({ heroSectionData }: HeroSectionProps) {
                 </Button>
               )}
             </div>
-
-            {/* Statistics */}
-            {/* <div className="flex flex-col md:flex-row gap-[50px] items-start pt-[32px]">
-              <div className="flex flex-col items-start">
-                <p className="font-manrope font-bold text-[24px] md:text-[26px] text-[#282828] leading-[48px] md:leading-[52px] tracking-[-1.2px] md:tracking-[-1.3px]">
-                  195k+ Users
-                </p>
-                <p className="font-manrope font-light text-[16px] text-[#8593a3] leading-[25.6px] tracking-[-0.8px] w-[236px] whitespace-pre-wrap">
-                  Delightful remarkably mr on announcing themselves entreaties favourable.
-                </p>
-              </div>
-              <div className="flex flex-col items-start">
-                <p className="font-manrope font-bold text-[24px] md:text-[26px] text-[#282828] leading-[48px] md:leading-[52px] tracking-[-1.2px] md:tracking-[-1.3px]">
-                  $400m+ Saved
-                </p>
-                <p className="font-manrope font-light text-[16px] text-[#8593a3] leading-[25.6px] tracking-[-0.8px] w-[232px] whitespace-pre-wrap">
-                  About to in so terms voice at. Equal an would is found seems of and concluded.
-                </p>
-              </div>
-            </div> */}
           </div>
 
-          {/* Right Side - Image Gallery - Desktop */}
-          <div className="hidden md:flex flex-1 justify-end w-auto absolute right-0 xl:right-[-94px] bottom-0 top-[118px] max-w-[48%]">
-            <div className="relative w-full h-full">
+          <div className="md:flex justify-end w-auto flex-1">
+            <div className='w-full h-full flex justify-end'>
               {imagesToUse && imagesToUse[0] && (
                 <Image
                   src={imagesToUse[0]}
@@ -139,21 +118,6 @@ export default function HeroSection({ heroSectionData }: HeroSectionProps) {
           </div>
         </div>
 
-        {/* Image Gallery Section - Mobile */}
-        <div className="block md:hidden w-full -mx-4 mt-8">
-          <div className="h-[400px] w-[calc(100%+32px)] overflow-hidden md:rounded-2xl relative">
-            {imagesToUse && imagesToUse[0] && (
-              <Image
-                src={imagesToUse[0]}
-                alt="Business payments"
-                fill
-                className="object-cover object-center"
-                sizes="100vw"
-                priority
-              />
-            )}
-          </div>
-        </div>
 
       </Container>
     </Section>

@@ -34,7 +34,7 @@ export default function Header({ headerData }: HeaderProps) {
       <div className="w-full  py-3 md:px-12 px-4 ">
         <div className="flex items-center justify-between w-full">
           {/* Logo Section */}
-          <div className="flex items-center flex-1">
+          <div className="flex items-center ">
             <div className="flex items-center gap-2">
               {/* Logo - using CMS data or placeholder */}
               <div className="flex items-center gap-1 max-h-[40px] w-full">
@@ -110,8 +110,8 @@ export default function Header({ headerData }: HeaderProps) {
 
           {/* Right Section - CTA Button and Language Selector */}
           <div className="flex items-center justify-end gap-2 sm:gap-3 ">
-            {/* CTA Button - Hidden on small screens, visible on medium+ */}
-            <div className="flex gap-[18px] md:pt-0 pt-2 items-start">
+            {/* CTA Button - Hidden on mobile, visible on medium+ */}
+            <div className="hidden md:flex gap-[18px] md:pt-0 pt-2 items-start">
               {cta.scheduleLink && (
                 <Button
                   type="primaryV3"

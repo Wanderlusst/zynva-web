@@ -78,7 +78,7 @@ export default function Footer({ footerData }: FooterProps) {
         />
       </div>
       
-      <Container padding='default' className='w-full relative z-10'>
+      <Container padding='small_xl' className='w-full relative z-10'>
         <div className="flex flex-col gap-8">
           {/* Main Footer Content */}
           <div className="flex flex-col md:flex-row gap-8 md:gap-12 justify-between">
@@ -86,10 +86,11 @@ export default function Footer({ footerData }: FooterProps) {
             <div className="flex flex-col gap-4 md:max-w-[213px]">
               {/* Company Name */}
               <Link href="/" className="w-fit">
-                <h3 className="font-manrope font-bold text-[21px] text-[#1b1c31] leading-[28px] tracking-[-0.42px]">
+                {/* <h3 className="font-manrope font-bold text-[21px] text-[#1b1c31] leading-[28px] tracking-[-0.42px]">
                   {footerData?.companyName || footerData?.logoText || 'Zynva'}
-                </h3>
-              </Link>
+                </h3> */}
+                <Image src={footerData?.logo?.asset?.url || ''} alt={footerData?.logo?.alt || ''} width={100} height={100} />
+                </Link>
               
               {/* Description */}
               <p className="font-manrope font-normal text-[16px] text-[#757095] leading-[28px] tracking-[-0.32px]">
