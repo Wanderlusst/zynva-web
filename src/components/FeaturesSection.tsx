@@ -46,8 +46,7 @@ function StackedCard({ feature, index, totalCards, imageUrl, imageAlt, cardRef, 
   // Only enable when mounted and not on mobile
   const { scrollYProgress } = useScroll({
     target: isMounted && !isMobile ? cardElementRef : undefined,
-    offset: ["start end", "end start"],
-    layoutEffect: false
+    offset: ["start end", "end start"]
   });
 
   // const scale = useTransform(
@@ -324,8 +323,7 @@ export default function FeaturesSection({ featuresSectionData }: FeaturesSection
   // Track scroll progress of the entire features container (only on desktop)
   const { scrollYProgress } = useScroll({
     target: isContainerMounted && !isMobile ? containerRef : undefined,
-    offset: ["start end", "end start"],
-    layoutEffect: false
+    offset: ["start end", "end start"]
   });
 
   // Function 1: Handle scroll behavior - updates active card based on scroll position (desktop only)
