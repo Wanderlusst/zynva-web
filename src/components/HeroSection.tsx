@@ -1,12 +1,12 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
 
 import { useCTA } from '@/contexts/CTAContext';
 import { usePostHog } from '@/hooks/usePostHog';
 import { Container, Section } from './structure';
 import Button from './Button';
+import VideoPlayer from './Media/VideoPlayer';
 
 
 interface HeroSectionProps {
@@ -38,12 +38,6 @@ interface HeroSectionProps {
 export default function HeroSection({ heroSectionData }: HeroSectionProps) {
   const { trackButtonClick } = usePostHog();
   const { cta } = useCTA();
-  
-  const imagesToUse = heroSectionData?.heroImages && heroSectionData.heroImages.length > 0 
-    ? heroSectionData.heroImages
-        .sort((a, b) => a.order - b.order)
-        .map(img => img.image.asset.url || img.image.asset._ref)
-    : '';
 
   const subheading = heroSectionData?.subheadings?.[0] || "Product Growth Solution in Single Platform.";
   const heading = heroSectionData?.heroSection?.heading || "Managing business payments has never been easier";
@@ -103,17 +97,15 @@ export default function HeroSection({ heroSectionData }: HeroSectionProps) {
 
           <div className="md:flex justify-end w-auto flex-1">
             <div className='w-full h-full flex justify-end'>
-              {imagesToUse && imagesToUse[0] && (
-                <Image
-                  src={imagesToUse[0]}
-                  alt="Business payments illustration"
-                  className="object-contain md:max-w-[480px] h-full rounded-2xl object-bottom"
-                  width={704}
-                  height={653}
-                  title="Business payments"
-                  priority={true}
-                />
-              )}
+              <VideoPlayer
+                src="https://cdn.sanity.io/files/jni56u7c/develop/87e38ab2ccc9f232bc96cb86f81934a0ffaaa9da.mp4"
+                className="md:max-w-[480px] h-full"
+                autoPlay={true}
+                loop={true}
+                muted={true}
+                playsInline={true}
+                controls={false}
+              />
             </div>
           </div>
         </div>

@@ -88,7 +88,6 @@ export default async function Home() {
       <ProcessSection />
       <TestimonialsSection />
       <CTASection />
-      {data.logoCloud && data.logoCloud.logos && data.logoCloud.logos.length > 0 && <LogoCloud logoCloudData={data.logoCloud} />}
       { <FAQSection faqSectionData={data.faqSection} faqData={data.faqData} />}
       
     </>
