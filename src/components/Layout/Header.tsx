@@ -16,22 +16,49 @@ interface HeaderProps {
 
 export default function Header({ headerData }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [isScrollingUp, setIsScrollingUp] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const { trackButtonClick, trackLinkClick } = usePostHog();
   const { cta } = useCTA();
   const isMobile = useMediaQuery(768);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0);
+      const currentScrollY = window.scrollY;
+      
+      // Always show header at the top
+      if (currentScrollY < 10) {
+        setIsVisible(true);
+        setIsScrollingUp(false);
+      } 
+      // Show header when scrolling up
+      else if (currentScrollY < lastScrollY) {
+        setIsVisible(true);
+        setIsScrollingUp(true);
+      } 
+      // Hide header when scrolling down
+      else if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setIsVisible(false);
+        setIsScrollingUp(false);
+      }
+      
+      setLastScrollY(currentScrollY);
     };
-    window.addEventListener('scroll', handleScroll);
+    
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [lastScrollY]);
 
   return (
-    <header className={` w-full fixed top-0 left-0    z-[9999] ${isMobile ? 'bg-white' : (isScrolled ? 'bg-white' : 'bg-transparent')}`}>
-      <div className="w-full  py-3 md:px-12 px-4 ">
+    <header 
+      className={`fixed w-full top-0 left-0 z-[9999] transition-all duration-300 ${
+        isVisible ? 'translate-y-0' : '-translate-y-full'
+      } ${
+        isScrollingUp && lastScrollY > 10 ? 'bg-white' : 'bg-transparent'
+      }`}
+    >
+      <div className="w-full py-3 md:px-12 px-4">
         <div className="flex items-center justify-between w-full">
           {/* Logo Section */}
           <div className="flex items-center ">
@@ -73,7 +100,7 @@ export default function Header({ headerData }: HeaderProps) {
                       key={index}
                       href={url} 
                       onClick={() => trackLinkClick(item.label, item.url, { location: 'header' })}
-                      className="text-[#101828] text-base font-medium leading-6 hover:text-[#01b59e] transition-colors font-geist"
+                      className="text-white text-base font-medium leading-6 hover:text-[#01b59e] transition-colors font-geist"
                     >
                       {item.label}
                     </a>
@@ -85,21 +112,21 @@ export default function Header({ headerData }: HeaderProps) {
                   <a 
                     href="/#features" 
                     onClick={() => trackLinkClick('Features Nav', '#features', { location: 'header' })}
-                    className="text-[#101828] text-base font-medium leading-6 hover:text-[#01b59e] transition-colors font-geist"
+                    className="text-white text-base font-medium leading-6 hover:text-[#01b59e] transition-colors font-geist"
                   >
                     Features
                   </a>
                   <a 
                     href="/#integrations" 
                     onClick={() => trackLinkClick('Integrations Nav', '#integrations', { location: 'header' })}
-                    className="text-[#101828] text-base font-medium leading-6 hover:text-[#01b59e] transition-colors font-geist"
+                    className="text-white text-base font-medium leading-6 hover:text-[#01b59e] transition-colors font-geist"
                   >
                     Integrations
                   </a>
                   <a 
                     href="/#faqs" 
                     onClick={() => trackLinkClick('FAQs Nav', '#faqs', { location: 'header' })}
-                    className="text-[#101828] text-base font-medium leading-6 hover:text-[#01b59e] transition-colors font-geist"
+                    className="text-white text-base font-medium leading-6 hover:text-[#01b59e] transition-colors font-geist"
                   >
                     FAQs
                   </a>
@@ -145,9 +172,9 @@ export default function Header({ headerData }: HeaderProps) {
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               <div className="w-6 h-6 flex flex-col justify-center gap-1">
-                <div className="w-full h-0.5 bg-gray-900"></div>
-                <div className="w-full h-0.5 bg-gray-900"></div>
-                <div className="w-full h-0.5 bg-gray-900"></div>
+                <div className="w-full h-0.5 bg-white"></div>
+                <div className="w-full h-0.5 bg-white"></div>
+                <div className="w-full h-0.5 bg-white"></div>
               </div>
             </button>
           </div>
@@ -165,7 +192,7 @@ export default function Header({ headerData }: HeaderProps) {
                     <a 
                       key={index}
                       href={url} 
-                      className="text-[#101828] text-base font-medium leading-6 hover:text-[#01b59e] transition-colors font-geist"
+                      className="text-white text-base font-medium leading-6 hover:text-[#01b59e] transition-colors font-geist"
                       onClick={() => {
                         trackLinkClick(item.label, item.url, { location: 'mobile_menu' });
                         setIsMenuOpen(false);
@@ -180,7 +207,7 @@ export default function Header({ headerData }: HeaderProps) {
                 <>
                   <a 
                     href="/#features" 
-                    className="text-[#101828] text-base font-medium leading-6 hover:text-[#01b59e] transition-colors font-geist"
+                    className="text-white text-base font-medium leading-6 hover:text-[#01b59e] transition-colors font-geist"
                     onClick={() => {
                       trackLinkClick('Features Nav', '#features', { location: 'mobile_menu' });
                       setIsMenuOpen(false);
@@ -190,7 +217,7 @@ export default function Header({ headerData }: HeaderProps) {
                   </a>
                   <a 
                     href="/#integrations" 
-                    className="text-[#101828] text-base font-medium leading-6 hover:text-[#01b59e] transition-colors font-geist"
+                    className="text-white text-base font-medium leading-6 hover:text-[#01b59e] transition-colors font-geist"
                     onClick={() => {
                       trackLinkClick('Integrations Nav', '#integrations', { location: 'mobile_menu' });
                       setIsMenuOpen(false);
@@ -200,7 +227,7 @@ export default function Header({ headerData }: HeaderProps) {
                   </a>
                   <a 
                     href="/#faqs" 
-                    className="text-[#101828] text-base font-medium leading-6 hover:text-[#01b59e] transition-colors font-geist"
+                    className="text-white text-base font-medium leading-6 hover:text-[#01b59e] transition-colors font-geist"
                     onClick={() => {
                       trackLinkClick('FAQs Nav', '#faqs', { location: 'mobile_menu' });
                       setIsMenuOpen(false);

@@ -44,38 +44,52 @@ export default function HeroSection({ heroSectionData }: HeroSectionProps) {
   const description = heroSectionData?.heroSection?.description || "Never at water me might. On formed merits hunted unable merely by mr whence or. Possession the unpleasing simplicity her uncommonly.";
 
   return (
-    <Section className="w-full flex flex-col items-center relative !bg-[#faf6f5] overflow-hidden">
-      {/* Background Ellipse - Top Right Corner */} 
-      <div className="absolute top-0 right-0 w-[60%] h-[40%] pointer-events-none">
+    <Section className="w-full flex flex-col items-center relative overflow-hidden min-h-screen">
+      {/* Background Video - Full Width and Height */}
+      <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
+        <div className="absolute inset-0 w-full h-full">
+          <VideoPlayer
+            src="https://cdn.sanity.io/files/jni56u7c/develop/87e38ab2ccc9f232bc96cb86f81934a0ffaaa9da.mp4"
+            className="w-full h-full object-cover"
+            autoPlay={true}
+            loop={true}
+            muted={true}
+            playsInline={true}
+            controls={false}
+          />
+        </div>
+        {/* Overlay for better text readability */}
+        <div className="absolute inset-0 bg-black/20 z-10"></div>
+        {/* Light blur overlay with black shadow for text visibility */}
         <div 
-          className="w-full h-full"
+          className="absolute inset-0 backdrop-blur-sm bg-black/30 z-10"
           style={{
-            background: 'radial-gradient(ellipse 100% 100% at 100% 0%, rgba(205, 238, 221, 0.15) 0%, rgba(205, 238, 221, 0.05) 50%, transparent 100%)',
+            boxShadow: 'inset 0 0 100px rgba(0, 0, 0, 0.5)',
           }}
-        />
+        ></div>
       </div>
       
       <Container 
-        className="w-full flex flex-col items-start justify-center md:gap-0 gap-8 py-0 pt-[40px] md:!pb-0 md:px-auto md:!py-0 md:!pt-[118px] md:mt-0 mt-12 !pb-0 relative z-10"
+        className="w-full flex flex-col items-center justify-center md:gap-0 gap-8 py-0 relative z-20 min-h-screen"
       >
-        <div className="w-full flex flex-col md:flex-row gap-[50px] items-start md:items-start relative">
-          <div className="flex flex-shrink-0 flex-col gap-[32px] md:px-0 z-10 relative w-full md:w-auto md:max-w-[646px]">
-            <p className="font-manrope text-[22px] text-black leading-normal not-italic">
+        <div className="w-full flex flex-col items-center justify-center gap-[50px] relative">
+          <div className="flex flex-col gap-[32px] z-10 relative w-full max-w-[646px] items-center text-center">
+            <p className="font-geist text-2xl text-white font-medium leading-normal not-italic drop-shadow-lg">
               {subheading}
             </p>
 
             {/* Main Heading */}
-            <h1 className="font-manrope font-extrabold text-[48px] md:text-[60px] text-black leading-[64px] md:leading-[80px] tracking-[-1.2px] md:tracking-[-1.8px] w-full whitespace-pre-wrap">
+            <h1 className="font-geist font-extrabold text-[48px] md:text-[60px] text-white leading-[64px] md:leading-[80px] tracking-[-1.2px] md:tracking-[-1.8px] w-full whitespace-pre-wrap drop-shadow-lg">
               {heading}
             </h1>
             
             {/* Description */}
-            <p className="font-manrope font-normal text-[18px] md:text-[20px] text-[#757095] leading-[28px] md:leading-[35px] tracking-[-0.36px] md:tracking-[-0.4px] w-full md:max-w-[569px] whitespace-pre-wrap">
+            <p className="font-geist font-bold text-[18px] md:text-3xl text-white/90 leading-[28px] md:leading-[35px] tracking-[-0.36px] md:tracking-[-0.4px] w-full whitespace-pre-wrap drop-shadow-md">
               {description}
             </p>
 
             {/* CTA Button */}
-            <div className="flex gap-[18px] md:pt-0 pt-2 items-start">
+            <div className="flex gap-[18px] md:pt-0 pt-2 items-center justify-center">
               {cta.scheduleLink && (
                 <Button
                   type="primaryV3"
@@ -94,23 +108,7 @@ export default function HeroSection({ heroSectionData }: HeroSectionProps) {
               )}
             </div>
           </div>
-
-          <div className="md:flex justify-end w-auto flex-1">
-            <div className='w-full h-full flex justify-end'>
-              <VideoPlayer
-                src="https://cdn.sanity.io/files/jni56u7c/develop/87e38ab2ccc9f232bc96cb86f81934a0ffaaa9da.mp4"
-                className="md:max-w-[480px] h-full"
-                autoPlay={true}
-                loop={true}
-                muted={true}
-                playsInline={true}
-                controls={false}
-              />
-            </div>
-          </div>
         </div>
-
-
       </Container>
     </Section>
   );
