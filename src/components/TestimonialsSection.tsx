@@ -12,9 +12,9 @@ import Link from 'next/link';
 // Hardcoded testimonials data
 const testimonials = [
   {
-    authorName: 'Anjali K',
-    authorTitle: 'Founder of Hathira Wellness',
-    testimonial: 'Is be upon sang fond must shew. Really boy law county she unable her sister. Feet you off its like like six. Among sex are leave law built now.',
+    authorName: 'Anjali P A',
+    authorTitle: 'Founder & CEO of Hathira Wellness',
+    testimonial: 'Before Zynva, our GST reconciliation was a 30-hour monthly nightmare. Now, automated segregation and amortization are flawless, and we finally see our True Profit.',
     rating: 5,
     imageUrl: null // Will use placeholder
   }
@@ -91,7 +91,7 @@ export default function TestimonialsSection() {
   };
   
   return (
-    <Section bgColor="white" padding="default" style={{scrollMarginTop: '73px'}}>
+    <Section id="testimonial" bgColor="white" padding="default" style={{scrollMarginTop: '73px'}}>
       <Container className='flex flex-col gap-12 md:gap-16 relative'>
         {/* Section Header */}
         <SectionHeader
@@ -106,7 +106,7 @@ export default function TestimonialsSection() {
             href="https://www.hathira-wellness.in/" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="relative w-full md:w-[402px] h-full rounded-2xl overflow-hidden flex-shrink-0 transition-all duration-300 hover:invert cursor-pointer"
+            className="relative md:w-[402px] w-[200px] h-full rounded-2xl overflow-hidden flex-shrink-0 transition-all duration-300 hover:invert cursor-pointer"
           >
             <Image 
               src={'https://cdn.sanity.io/images/jni56u7c/develop/174fe4303c8a25004609e073ee46d5baad34d085-640x329.webp'} 
@@ -118,25 +118,25 @@ export default function TestimonialsSection() {
           </Link>
 
           {/* Right Side - Testimonial Text */}
-          <div className="flex flex-col gap-6 md:max-w-[554px]">
+          <div className="flex flex-col md:gap-6 gap-2 md:max-w-[554px] ">
           
 
             {/* Star Rating */}
-            <div className="mb-4">
+            <div className="flex flex-row md:items-start justify-start w-full">
               <StarRating rating={currentTestimonial.rating} />
             </div>
 
             {/* Testimonial Text */}
-            <p className="font-manrope font-bold text-[30px] text-[#1b1c31] leading-[41px] tracking-[-0.6px] mb-6">
+            <p className="font-manrope font-semibold md:text-[30px] text-lg text-[#1b1c31] md:leading-[41px] leading-normal md:tracking-[-0.6px] tracking-normal mb-6">
               {currentTestimonial.testimonial}
             </p>
 
             {/* Author Info */}
-            <div className="flex flex-col gap-2">
-              <p className="font-manrope font-bold text-[20px] text-black leading-[30px] tracking-[-0.6px]">
+            <div className="flex flex-col md:gap-2">
+              <p className="font-manrope font-medium md:text-[20px] text-base text-black leading-[30px] tracking-[-0.6px]">
                 {currentTestimonial.authorName}
               </p>
-              <p className="font-manrope font-medium text-[16px] text-[#757095] leading-[24px] tracking-[-0.32px]">
+              <p className="font-manrope font-medium md:text-[16px] text-sm text-[#757095] leading-[24px] tracking-[-0.32px]">
                 {currentTestimonial.authorTitle}
               </p>
             </div>
@@ -148,16 +148,19 @@ export default function TestimonialsSection() {
           <div className="text-center flex justify-center pt-4">
             <Button 
               type="primaryV3"
-              link="/schedule"
-              target="_blank"
+              link="#cta-section"
               onClick={() => {
                 trackButtonClick('testimonials_section_walkthrough', { 
                   section: 'testimonials',
                   action: 'schedule_walkthrough'
-                })
+                });
+                const ctaSection = document.getElementById('cta-section');
+                if (ctaSection) {
+                  ctaSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
               }}
             >
-              <span>Schedule a Walkthrough</span>
+              <span>Join Waiting List</span>
             </Button>
           </div>
         )}

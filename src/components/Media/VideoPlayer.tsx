@@ -93,22 +93,36 @@ export default function VideoPlayer({
     setIsLoading(false);
   };
 
+  const isBackgroundVideo = className.includes('object-cover') && !className.includes('rounded');
+  
   return (
-    <div className={`relative w-full h-full ${className}`}>
+    <div className={`relative w-full h-full ${className}`} style={isBackgroundVideo ? { width: '100%', height: '100%' } : {}}>
       {isLoading && (
-        <div className="absolute inset-0 flex items-center justify-center bg-gray-100 rounded-2xl z-10">
+        <div className={`absolute inset-0 flex items-center justify-center bg-gray-100 ${isBackgroundVideo ? '' : 'rounded-2xl'} z-10`}>
           <div className="animate-pulse text-gray-400">Loading video...</div>
         </div>
       )}
       {hasError && (
-        <div className="absolute inset-0 flex items-center justify-center bg-gray-100 rounded-2xl z-10">
+        <div className={`absolute inset-0 flex items-center justify-center bg-gray-100 ${isBackgroundVideo ? '' : 'rounded-2xl'} z-10`}>
           <div className="text-gray-400">Failed to load video</div>
         </div>
       )}
       <video
         ref={videoRef}
         src={src}
-        className="w-full h-full object-contain rounded-2xl"
+        className={`w-full h-full ${className.includes('object-cover') ? 'object-cover' : 'object-contain'} ${isBackgroundVideo ? '' : 'rounded-2xl'}`}
+        style={{
+          objectFit: className.includes('object-cover') ? 'cover' : 'contain',
+          width: '100%',
+          height: '100%',
+          ...(isBackgroundVideo && {
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            minWidth: '100%',
+            minHeight: '100%',
+          }),
+        }}
         autoPlay={autoPlay}
         loop={loop}
         muted={muted}

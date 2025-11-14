@@ -125,16 +125,19 @@ export default function TestimonialSection({ testimonialsSection }: Props) {
           <div className="flex justify-center ">
             <Button 
               type="primaryV3"
-              link="/schedule"
-              target="_blank"
+              link="#cta-section"
               onClick={() => {
                 trackButtonClick('testimonial_walkthrough', { 
                   section: 'testimonials',
                   action: 'schedule_walkthrough'
-                })
+                });
+                const ctaSection = document.getElementById('cta-section');
+                if (ctaSection) {
+                  ctaSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
               }}
             >
-              <span>Schedule a Walkthrough</span>
+              <span>Join Waiting List</span>
             </Button>
           </div>
         )}

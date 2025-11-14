@@ -169,17 +169,20 @@ export default function IntegrationsSection({ integrationData }: IntegrationsSec
           {cta.scheduleLink && (
             <Button
               type="primaryV3"
-              link="/schedule"
-              target="_blank"
+              link="#cta-section"
               onClick={() => {
                 trackButtonClick('integration_walkthrough', { 
                   section: 'integrations',
                   action: 'schedule_walkthrough'
-                })
+                });
+                const ctaSection = document.getElementById('cta-section');
+                if (ctaSection) {
+                  ctaSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
               }}
               className="w-full sm:w-auto"
             >
-              <span>Schedule a Walkthrough</span>
+              <span>Join Waiting List</span>
             </Button>
           )}
           <button

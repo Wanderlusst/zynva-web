@@ -115,17 +115,20 @@ export default function EMRIntegrationSection({ emrIntegrationData }: EMRIntegra
           <div className="text-center flex justify-center">
             <Button 
               type="primaryV3"
-              link="/schedule"
-              target="_blank"
+              link="#cta-section"
               onClick={() => {
                 trackButtonClick('emr_integration_walkthrough', { 
                   section: 'emr_integration',
                   action: 'schedule_walkthrough'
-                })
+                });
+                const ctaSection = document.getElementById('cta-section');
+                if (ctaSection) {
+                  ctaSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
               }}
               size="md"
             >
-              <span>Schedule a Walkthrough</span>
+              <span>Join Waiting List</span>
             </Button>
           </div>
         )}

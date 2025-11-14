@@ -21,7 +21,7 @@ interface CTAContextType {
 
 // Default CTA Configuration
 const defaultCTA: CTAConfig = {
-  primaryButtonText: 'Schedule a Walkthrough',
+  primaryButtonText: 'Join Waiting List',
   primaryButtonLink: '#contact',
   secondaryButtonText: 'Learn More',
   secondaryButtonLink: '#features',

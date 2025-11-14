@@ -16,13 +16,13 @@ export function generateSEOMetadata(
   fallbackTitle: string = 'Zynva',
   fallbackDescription: string = 'Comprehensive healthcare solutions for modern practices'
 ): Metadata {
-  // Use SEO settings if available, otherwise use fallbacks
-  const title = seoSettings?.title || fallbackTitle
+  // Hardcode title to Zynva
+  const title = 'Zynva'
   const description = seoSettings?.description || fallbackDescription
   const keywords = seoSettings?.keywords || ['healthcare', 'EMR', 'integration', 'medical software']
   
-  // Open Graph data
-  const ogTitle = seoSettings?.ogTitle || title
+  // Open Graph data - hardcode title to Zynva
+  const ogTitle = 'Zynva'
   const ogDescription = seoSettings?.ogDescription || description
   const ogImage = seoSettings?.ogImage?.asset?.url
   const ogUrl = seoSettings?.ogUrl

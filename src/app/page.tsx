@@ -22,21 +22,19 @@ export async function generateMetadata(): Promise<Metadata> {
   
   try {
     const homepageData = await queries.getHomepageData()
-    const heroHeading = (homepageData.heroSection as any)?.heroSection?.heading || (homepageData.heroSection as any)?.heading || 'Zynva'
-    const heroDescription = (homepageData.heroSection as any)?.heroSection?.description || homepageData.heroSection?.description || 'Comprehensive healthcare solutions for modern practices'
-    const fallbackTitle = heroHeading
+    const heroDescription = (homepageData.heroSection as any)?.heroSection?.description || homepageData.heroSection?.description || 'All in one solution helping business'
     const fallbackDescription = heroDescription
     
     return generateSEOMetadata(
       homepageData.seoSettings,
-      fallbackTitle,
+      'Zynva',
       fallbackDescription
     )
   } catch (error) {
     console.error('Error generating metadata:', error)
     return {
       title: 'Zynva',
-      description: 'Comprehensive healthcare solutions for modern practices',
+      description: 'All in one solution helping business',
     }
   }
 }
@@ -88,7 +86,7 @@ export default async function Home() {
       <ProcessSection />
       <TestimonialsSection />
       <CTASection />
-      { <FAQSection faqSectionData={data.faqSection} faqData={data.faqData} />}
+      {/* { <FAQSection faqSectionData={data.faqSection} faqData={data.faqData} />} */}
       
     </>
   )

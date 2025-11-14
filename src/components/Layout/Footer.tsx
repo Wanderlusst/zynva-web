@@ -58,8 +58,8 @@ const footerLinks = {
     { label: 'How to write a contract', href: '/how-to-write-contract' }
   ],
   contact: {
-    email: 'danialads12@gmail.com',
-    phone: '+92-311-689-2135'
+    email: 'zynva@gmail.com',
+    phone: '+91-9876543210'
   }
 };
 
@@ -237,7 +237,7 @@ export default function Footer({ footerData }: FooterProps) {
 
           {/* Copyright */}
           <div className="flex items-center justify-center py-4">
-            <p className="font-manrope font-normal text-[24px] text-[#181433] leading-[26px] tracking-[-0.48px] text-center capitalize">
+            <p className=" font-normal text-base font-geist text-[#181433] leading-[26px] tracking-[-0.48px] text-center capitalize">
               Copyright @ {new Date().getFullYear()} Zynva. All Rights Reserved.
             </p>
           </div>

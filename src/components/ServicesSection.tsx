@@ -7,87 +7,76 @@ import { Container, Section, SectionHeader } from './structure';
 // Service card data
 const services = [
   {
-    title: 'Project Management',
-    options: '30 options available',
-    icon: 'grid'
+    title: 'Patient Management',
+    options: 'Keep track of every visit, treatment, and history effortlessly. Manage appointments, follow-ups, and patient data in one place.',
+    icon: 'patient'
   },
   {
-    title: 'Design & Creatives',
-    options: '13 options available',
-    icon: 'gem'
+    title: 'Revenue & Expense Tracking',
+    options: 'In every business, it\'s essential to know where your money goes. Zynva helps you track revenue and expenses effortlessly, giving you clear insights into where you spend more - and how to grow smarter',
+    icon: 'money'
   },
   {
-    title: 'Web & Mobile Development',
-    options: '40 options available',
-    icon: 'pen'
+    title: 'Inventory Management',
+    options: 'Never run out of essential or fast-selling products again. Track stock levels, usage, and availability in real time - effortlessly.',
+    icon: 'inventory'
   },
   {
-    title: 'Marketing & Communication',
-    options: '27 options available',
-    icon: 'lightning'
+    title: 'Business Insights',
+    options: 'Make data-driven decisions with real-time analytics. Understand your growth, top services, and profit trends.',
+    icon: 'chart'
   },
   {
-    title: 'Customer Support',
-    options: '17 options available',
-    icon: 'headset'
-  },
-  {
-    title: 'Business Development',
-    options: '22 options available',
-    icon: 'briefcase'
-  },
-  {
-    title: 'Human Resources',
-    options: '21 options available',
+    title: 'Staff & Role Management',
+    options: 'Assign roles, set permissions, and monitor staff performance with ease. Keep your team organized, secure, and productive.',
     icon: 'people'
   },
   {
-    title: '+4 More',
-    options: '170+ options available',
-    icon: null,
-    isSpecial: true
-  }
+    title: 'Billing & PDF Downloads',
+    options: 'Simplify your billing process with accuracy and speed. Generate professional invoices, track payments, and download detailed PDF reports instantly for seamless recordkeeping and compliance.',
+    icon: 'document'
+  },
+
 ];
 
 // Icon components
-const GridIcon = () => (
+const PatientIcon = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="3" y="3" width="7" height="7" rx="1" stroke="black" strokeWidth="2"/>
-    <rect x="14" y="3" width="7" height="7" rx="1" stroke="black" strokeWidth="2"/>
-    <rect x="3" y="14" width="7" height="7" rx="1" stroke="black" strokeWidth="2"/>
-    <rect x="14" y="14" width="7" height="7" rx="1" stroke="black" strokeWidth="2"/>
+    <path d="M12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12Z" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M20.59 22C20.59 18.13 16.74 15 12 15C7.26 15 3.41 18.13 3.41 22" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M9 9H15M12 6V12" stroke="black" strokeWidth="2" strokeLinecap="round"/>
   </svg>
 );
 
-const GemIcon = () => (
+const MoneyIcon = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M12 2L2 7L12 22L22 7L12 2Z" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    <rect x="2" y="6" width="20" height="12" rx="2" stroke="black" strokeWidth="2"/>
+    <circle cx="12" cy="12" r="2" stroke="black" strokeWidth="2"/>
+    <path d="M6 10H6.01M18 14H18.01" stroke="black" strokeWidth="2" strokeLinecap="round"/>
   </svg>
 );
 
-const PenIcon = () => (
+const InventoryIcon = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M12 20H21M16.5 3.5C16.8978 3.10218 17.4374 2.87868 18 2.87868C18.5626 2.87868 19.1022 3.10218 19.5 3.5C19.8978 3.89782 20.1213 4.43739 20.1213 5C20.1213 5.56261 19.8978 6.10218 19.5 6.5L7 19L2 20L3 15L16.5 1.5C16.8978 1.10218 17.4374 0.878683 18 0.878683C18.5626 0.878683 19.1022 1.10218 19.5 1.5L16.5 3.5Z" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M3 7V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H19C19.5304 3 20.0391 3.21071 20.4142 3.58579C20.7893 3.96086 21 4.46957 21 5V7" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M3 7L3 19C3 19.5304 3.21071 20.0391 3.58579 20.4142C3.96086 20.7893 4.46957 21 5 21H19C19.5304 21 20.0391 20.7893 20.4142 20.4142C20.7893 20.0391 21 19.5304 21 19V7" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M8 11H16M8 15H16" stroke="black" strokeWidth="2" strokeLinecap="round"/>
   </svg>
 );
 
-const LightningIcon = () => (
+const ChartIcon = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M3 3V21H21" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M7 16L11 12L15 8L21 14" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M21 14H15V8" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
   </svg>
 );
 
-const HeadsetIcon = () => (
+const DocumentIcon = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M3 18V12C3 9.61305 3.94821 7.32387 5.63604 5.63604C7.32387 3.94821 9.61305 3 12 3C14.3869 3 16.6761 3.94821 18.364 5.63604C20.0518 7.32387 21 9.61305 21 12V18" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M21 19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H18C17.4696 21 16.9609 20.7893 16.5858 20.4142C16.2107 20.0391 16 19.5304 16 19V16C16 15.4696 16.2107 14.9609 16.5858 14.5858C16.9609 14.2107 17.4696 14 18 14H21V19ZM3 19C3 19.5304 3.21071 20.0391 3.58579 20.4142C3.96086 20.7893 4.46957 21 5 21H6C6.53043 21 7.03914 20.7893 7.41421 20.4142C7.78929 20.0391 8 19.5304 8 19V16C8 15.4696 7.78929 14.9609 7.41421 14.5858C7.03914 14.2107 6.53043 14 6 14H3V19Z" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-  </svg>
-);
-
-const BriefcaseIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="2" y="7" width="20" height="14" rx="2" stroke="black" strokeWidth="2"/>
-    <path d="M16 21V5C16 4.46957 15.7893 3.96086 15.4142 3.58579C15.0391 3.21071 14.5304 3 14 3H10C9.46957 3 8.96086 3.21071 8.58579 3.58579C8.21071 3.96086 8 4.46957 8 5V21" stroke="black" strokeWidth="2"/>
+    <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M14 2V8H20" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M16 13H8M16 17H8M10 9H8" stroke="black" strokeWidth="2" strokeLinecap="round"/>
   </svg>
 );
 
@@ -100,24 +89,30 @@ const PeopleIcon = () => (
   </svg>
 );
 
+const PlusIcon = () => (
+  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 5V19M5 12H19" stroke="black" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+);
+
 const getIcon = (iconName: string | null) => {
   if (!iconName) return null;
   
   switch (iconName) {
-    case 'grid':
-      return <GridIcon />;
-    case 'gem':
-      return <GemIcon />;
-    case 'pen':
-      return <PenIcon />;
-    case 'lightning':
-      return <LightningIcon />;
-    case 'headset':
-      return <HeadsetIcon />;
-    case 'briefcase':
-      return <BriefcaseIcon />;
+    case 'patient':
+      return <PatientIcon />;
+    case 'money':
+      return <MoneyIcon />;
+    case 'inventory':
+      return <InventoryIcon />;
+    case 'chart':
+      return <ChartIcon />;
     case 'people':
       return <PeopleIcon />;
+    case 'document':
+      return <DocumentIcon />;
+    case 'plus':
+      return <PlusIcon />;
     default:
       return null;
   }
@@ -138,49 +133,29 @@ export default function ServicesSection() {
           {services.map((service, index) => (
             <div
               key={index}
-              className={`rounded-[15px] h-[237px] p-6 flex flex-col gap-4 ${
-                service.isSpecial
-                  ? 'bg-[#cdeedd] text-black'
-                  : 'bg-[#ffd9d0] border border-[#e7e7e7]'
+              className={`rounded-[15px] min-h-[237px] p-6 flex flex-col gap-4 ${
+                'bg-[#f6f6f7] border border-[#e7e7e7]'
               }`}
             >
-              {!service.isSpecial && (
                 <>
                   {/* Icon Container */}
-                  <div className="bg-[#fffefc] rounded-[5px] size-[40px] flex items-center justify-center">
+                  <div className=" rounded-[5px] size-[40px] flex items-center justify-center">
                     {getIcon(service.icon)}
                   </div>
 
                   {/* Title */}
-                  <h3 className="font-manrope font-bold text-[20px] text-black leading-[28px] tracking-[-0.4px]">
-                    {service.title.split(' ').map((word, i, arr) => (
-                      <React.Fragment key={i}>
-                        {word}
-                        {i < arr.length - 1 && <br />}
-                      </React.Fragment>
-                    ))}
+                  <h3 className="font-manrope font-bold text-xl text-black leading-[1.15] tracking-[-0.4px]">
+                    {service.title}
                   </h3>
 
                   {/* Options */}
-                  <p className="font-manrope font-medium text-[12px] text-[#757095] leading-[30px] tracking-[-0.24px]">
+                  <p className="font-manrope font-medium text-base text-black/60 leading-normal tracking-[-0.24px]  overflow-hidden">
                     {service.options}
                   </p>
                 </>
-              )}
+              
 
-              {service.isSpecial && (
-                <div className="flex flex-col justify-center items-center h-full gap-2">
-                  <p className="font-manrope font-bold text-[33px] text-black leading-[28px] tracking-[-0.66px]">
-                    {service.title}
-                  </p>
-                  <p className="font-manrope font-bold text-[30px] text-black leading-[28px] tracking-[-0.6px]">
-                    More
-                  </p>
-                  <p className="font-manrope font-medium text-[12px] text-black leading-[30px] tracking-[-0.24px]">
-                    {service.options}
-                  </p>
-                </div>
-              )}
+
             </div>
           ))}
         </div>
