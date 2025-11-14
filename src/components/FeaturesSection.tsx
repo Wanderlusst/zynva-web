@@ -179,16 +179,19 @@ export default function FeaturesSection({ featuresSectionData }: FeaturesSection
         description: card.description || '',
         items: card.benefits || [],
         cta: card.cta || (cta.scheduleLink ? {
-          text: 'Schedule a Walkthrough',
+          text: 'Join Waiting List',
           type: 'primary',
-          link: '/schedule',
-          target: '_blank',
+          link: '#cta-section',
           onClick: () => {
             trackButtonClick('feature_cta', { 
               feature_id: `feature-${index}`, 
               feature_title: card.subheading || getCardHeadline() || `Feature ${index + 1}`,
               action: 'schedule_walkthrough'
-            })
+            });
+            const ctaSection = document.getElementById('cta-section');
+            if (ctaSection) {
+              ctaSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
           }
         } : undefined)
       };

@@ -67,7 +67,7 @@ export default async function RootLayout({
             scheduleLink: ctaSection?.scheduleLink
           }}>
             <div className="min-h-screen">
-              <Header headerData={header} />
+              <Header headerData={header} footerData={footer} />
               <main>
                 {children}
               </main>

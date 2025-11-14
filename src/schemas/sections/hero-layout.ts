@@ -242,7 +242,7 @@ export const heroLayout = defineType({
           name: 'scheduleLink',
           title: 'Schedule Walkthrough Link',
           type: 'url',
-          description: 'URL to open when clicking "Schedule a Walkthrough" buttons (opens in new tab)',
+          description: 'URL to open when clicking "Join Waiting List" buttons (opens in new tab)',
           validation: (Rule) => Rule.required(),
         },
       ],

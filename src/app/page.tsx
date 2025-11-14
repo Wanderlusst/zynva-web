@@ -86,7 +86,7 @@ export default async function Home() {
       <ProcessSection />
       <TestimonialsSection />
       <CTASection />
-      { <FAQSection faqSectionData={data.faqSection} faqData={data.faqData} />}
+      {/* { <FAQSection faqSectionData={data.faqSection} faqData={data.faqData} />} */}
       
     </>
   )

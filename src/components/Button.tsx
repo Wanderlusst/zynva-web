@@ -32,7 +32,7 @@ const Button: React.FunctionComponent<ButtonProps> = ({
     {
       'rounded-[8px] text-gray-950 font-geist font-medium leading-[24px] tracking-wide [&>*]:relative [&>span]:text-[#030712] [&>span]:font-geist [&>span]:text-base [&>span]:font-medium [&>span]:leading-6 [&>span]:tracking-normal [&_span]:text-[#030712] [&_span]:font-geist [&_span]:text-base [&_span]:font-medium [&_span]:leading-6 [&_span]:tracking-normal':
         type !== 'primaryV3' && type !== undefined,
-      'rounded-[80px] bg-[#9bdabb] h-[55px] px-[32px] [&>span]:font-manrope [&>span]:font-semibold [&>span]:text-[16px] [&>span]:text-black [&>span]:leading-normal [&_span]:font-manrope [&_span]:font-semibold [&_span]:text-[16px] [&>span]:text-black [&>span]:leading-normal':
+      'rounded-[40px] bg-[#9bdabb] h-[50px] px-[32px] [&>span]:font-manrope [&>span]:font-semibold [&>span]:text-[16px] [&>span]:text-black [&>span]:leading-normal [&_span]:font-manrope [&_span]:font-semibold [&_span]:text-[16px] [&>span]:text-black [&>span]:leading-normal':
         type === 'primaryV3',
     }
   )

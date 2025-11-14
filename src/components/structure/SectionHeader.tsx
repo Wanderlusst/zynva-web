@@ -176,9 +176,9 @@ export default function SectionHeader({
   }
   
   return (
-    <div className={`text-center  ${className}`}>
+    <div className={`text-center max-w-[680px] mx-auto  ${className}`}>
       {subheading && (
-        <div className="text-xs sm:text-sm text-gray-950 opacity-70 tracking-wider uppercase mb-3 sm:mb-4 font-geist">
+        <div className="text-base sm:text-sm text-gray-950 opacity-70 tracking-wider uppercase mb-3 sm:mb-4 font-geist">
           {subheading}
         </div>
       )}

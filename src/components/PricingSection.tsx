@@ -151,14 +151,17 @@ export default function PricingSection() {
               {plan.isPremium ? (
                 <Button
                   type="primaryV3"
-                  link={cta.scheduleLink ? "/schedule" : undefined}
-                  target="_blank"
+                  link={cta.scheduleLink ? "#cta-section" : undefined}
                   onClick={() => {
                     trackButtonClick('pricing_premium_cta', { 
                       section: 'pricing',
                       plan: 'premium',
                       action: 'get_premium'
-                    })
+                    });
+                    const ctaSection = document.getElementById('cta-section');
+                    if (ctaSection) {
+                      ctaSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
                   }}
                   className="bg-white text-[#282828] hover:opacity-90 border border-[rgba(255,255,255,0.32)]"
                 >

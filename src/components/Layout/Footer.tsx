@@ -58,8 +58,8 @@ const footerLinks = {
     { label: 'How to write a contract', href: '/how-to-write-contract' }
   ],
   contact: {
-    email: 'danialads12@gmail.com',
-    phone: '+92-311-689-2135'
+    email: 'zynva@gmail.com',
+    phone: '+91-9876543210'
   }
 };
 

@@ -47,8 +47,8 @@ export default function SchedulePage() {
     <div className="min-h-screen flex items-center justify-center py-20 px-4 md:pt-44 pt-28">
       <div className="w-full max-w-5xl">
         <div className="text-center md:mb-[72px] mb-12">   
-        <SectionHeader heading="Schedule a Walkthrough" 
-        description="Book a Walkthrough to see how Zynva can transform your practice and supercharge your growth" />
+        <SectionHeader heading="Join Waiting List" 
+        description="Join our waiting list to be notified when Zynva becomes available and see how it can transform your practice and supercharge your growth" />
          </div>
         <div className="">
           <MeetingsEmbed key={safeMeetingUrl} meetingUrl={safeMeetingUrl} />
