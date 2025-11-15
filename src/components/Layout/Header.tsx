@@ -115,11 +115,16 @@ export default function Header({ headerData, footerData }: HeaderProps) {
                       />
                     );
                   } else if (headerData?.logoText) {
+                    // Filter out Opal Voice references
+                    const logoText = headerData.logoText
+                      .replace(/Opal Voice/gi, 'Zynva')
+                      .replace(/opalvoice/gi, 'Zynva')
+                      .replace(/opal voice/gi, 'Zynva');
                     return (
                       <div className={`text-sm sm:text-base text-black ${
                         hasWhiteBackground ? 'md:text-black' : 'md:text-white'
                       }`} style={{ fontFamily: 'var(--font-manrope)' }}>
-                        <span className="font-semibold">{headerData.logoText}</span>
+                        <span className="font-semibold">{logoText}</span>
                       </div>
                     );
                   } else {
@@ -161,7 +166,7 @@ export default function Header({ headerData, footerData }: HeaderProps) {
               >
                 Services
               </a>
-              <a 
+              {/* <a 
                 href="#process"
                 onClick={(e) => {
                   e.preventDefault();
@@ -182,7 +187,7 @@ export default function Header({ headerData, footerData }: HeaderProps) {
                 }`}
               >
                 Process
-              </a>
+              </a> */}
               <a 
                 href="#testimonial"
                 onClick={(e) => {

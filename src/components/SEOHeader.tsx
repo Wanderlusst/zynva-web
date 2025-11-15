@@ -13,22 +13,49 @@ interface SEOHeaderProps {
  */
 export function generateSEOMetadata(
   seoSettings?: SEOSettings | null,
-  fallbackTitle: string = 'Zynva',
-  fallbackDescription: string = 'Comprehensive healthcare solutions for modern practices'
+  fallbackTitle: string = 'Zynva - All-in-One Business Management Software for Clinics',
+  fallbackDescription: string = 'Manage patient visits, track revenue, monitor expenses, and control inventory all from one smart dashboard. Zynva is the complete business management solution for clinics and medical practices.'
 ): Metadata {
+  // Helper function to filter out Opal Voice references
+  const filterOpalVoice = (text: string | undefined): string | undefined => {
+    if (!text) return undefined
+    return text
+      .replace(/Opal Voice/gi, 'Zynva')
+      .replace(/opalvoice/gi, 'zynva')
+      .replace(/opal voice/gi, 'Zynva')
+  }
+
   // Hardcode title to Zynva
-  const title = 'Zynva'
-  const description = seoSettings?.description || fallbackDescription
-  const keywords = seoSettings?.keywords || ['healthcare', 'EMR', 'integration', 'medical software']
+  const title = fallbackTitle
+  // Filter out any Opal Voice references from description
+  const rawDescription = seoSettings?.description || fallbackDescription
+  const description = filterOpalVoice(rawDescription) || fallbackDescription
   
-  // Open Graph data - hardcode title to Zynva
-  const ogTitle = 'Zynva'
-  const ogDescription = seoSettings?.ogDescription || description
+  // Use proper Zynva keywords
+  const defaultKeywords = [
+    'clinic management software',
+    'patient management system',
+    'medical practice software',
+    'revenue tracking software',
+    'expense management',
+    'inventory management for clinics',
+    'business insights dashboard',
+    'staff management software',
+    'billing software for clinics',
+    'healthcare business software',
+  ]
+  const keywords = seoSettings?.keywords || defaultKeywords
+  
+  // Open Graph data - use Zynva title
+  const ogTitle = fallbackTitle
+  const rawOgDescription = seoSettings?.ogDescription || description
+  const ogDescription = filterOpalVoice(rawOgDescription) || description
   const ogImage = seoSettings?.ogImage?.asset?.url
-  const ogUrl = seoSettings?.ogUrl
+  // Filter out opalvoice.io URLs
+  const ogUrl = seoSettings?.ogUrl?.replace(/opalvoice\.io/gi, 'zynva.com') || undefined
   
-  // Canonical URL
-  const canonicalUrl = seoSettings?.canonicalUrl
+  // Canonical URL - filter out opalvoice.io
+  const canonicalUrl = seoSettings?.canonicalUrl?.replace(/opalvoice\.io/gi, 'zynva.com') || undefined
 
   const metadata: Metadata = {
     title,
