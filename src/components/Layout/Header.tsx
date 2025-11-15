@@ -28,6 +28,11 @@ export default function Header({ headerData, footerData }: HeaderProps) {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       
+      // Close mobile menu when scrolling
+      if (isMenuOpen) {
+        setIsMenuOpen(false);
+      }
+      
       // Always show header at the top
       if (currentScrollY < 10) {
         setIsVisible(true);
@@ -49,7 +54,7 @@ export default function Header({ headerData, footerData }: HeaderProps) {
     
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollY]);
+  }, [lastScrollY, isMenuOpen]);
 
   const hasWhiteBackground = isScrollingUp && lastScrollY > 10;
 
@@ -288,29 +293,6 @@ export default function Header({ headerData, footerData }: HeaderProps) {
                 }}
               >
                 Services
-              </a>
-              <a 
-                href="#process"
-                className="text-base font-medium leading-6 text-black hover:text-[#01b59e] transition-colors font-geist"
-                onClick={(e) => {
-                  e.preventDefault();
-                  trackLinkClick('Process Nav', '#process', { location: 'mobile_menu' });
-                  setIsMenuOpen(false);
-                  setTimeout(() => {
-                    const processSection = document.getElementById('process');
-                    if (processSection) {
-                      const headerHeight = 73;
-                      const elementPosition = processSection.getBoundingClientRect().top;
-                      const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
-                      window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth'
-                      });
-                    }
-                  }, 100);
-                }}
-              >
-                Process
               </a>
               <a 
                 href="#testimonial"

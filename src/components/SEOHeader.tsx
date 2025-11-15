@@ -52,7 +52,9 @@ export function generateSEOMetadata(
   const ogTitle = fallbackTitle
   const rawOgDescription = seoSettings?.ogDescription || description
   const ogDescription = filterOpalVoice(rawOgDescription) || description
-  const ogImage = seoSettings?.ogImage?.asset?.url
+  // Use CMS image if available, otherwise use default OG image
+  const defaultOgImage = 'https://cdn.sanity.io/images/jni56u7c/develop/8f9458c1cb8bdb43503c7c5b518f76c7b373d10f-1408x736.png'
+  const ogImage = seoSettings?.ogImage?.asset?.url || defaultOgImage
   // Filter out opalvoice.io URLs and ensure correct domain
   const ogUrl = seoSettings?.ogUrl?.replace(/opalvoice\.io/gi, 'www.zynva.in')?.replace(/zynva\.com/gi, 'www.zynva.in') || baseUrl
   
@@ -67,23 +69,19 @@ export function generateSEOMetadata(
       title: ogTitle,
       description: ogDescription,
       type: 'website',
-      ...(ogImage && {
-        images: [
-          {
-            url: ogImage,
-            alt: seoSettings?.ogImage?.alt || ogTitle,
-          },
-        ],
-      }),
+      images: [
+        {
+          url: ogImage,
+          alt: seoSettings?.ogImage?.alt || ogTitle,
+        },
+      ],
       url: ogUrl,
     },
     twitter: {
       card: 'summary_large_image',
       title: ogTitle,
       description: ogDescription,
-      ...(ogImage && {
-        images: [ogImage],
-      }),
+      images: [ogImage],
     },
     ...(canonicalUrl && {
       alternates: {
