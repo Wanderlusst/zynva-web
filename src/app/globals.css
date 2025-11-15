@@ -439,11 +439,11 @@ fieldset .hs-form-field label {
 .animated-button {
   position: relative;
   padding: 12px 35px;
-  background: #fec195;
-  font-size: 17px;
+  background: #037a55;
+  font-size: 16px;
   font-weight: 500;
-  color: #181818;
-  border: 3px solid #fec195;
+  color: #ffffff;
+  border: 3px solid #037a55;
   border-radius: 8px;
   box-shadow: 0 0 0 #fec1958c;
   transition: all 0.3s ease-in-out;
