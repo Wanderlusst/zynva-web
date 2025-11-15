@@ -16,6 +16,8 @@ export function generateSEOMetadata(
   fallbackTitle: string = 'Zynva - All-in-One Business Management Software for Clinics',
   fallbackDescription: string = 'Manage patient visits, track revenue, monitor expenses, and control inventory all from one smart dashboard. Zynva is the complete business management solution for clinics and medical practices.'
 ): Metadata {
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.zynva.in'
+  
   // Helper function to filter out Opal Voice references
   const filterOpalVoice = (text: string | undefined): string | undefined => {
     if (!text) return undefined
@@ -51,11 +53,11 @@ export function generateSEOMetadata(
   const rawOgDescription = seoSettings?.ogDescription || description
   const ogDescription = filterOpalVoice(rawOgDescription) || description
   const ogImage = seoSettings?.ogImage?.asset?.url
-  // Filter out opalvoice.io URLs
-  const ogUrl = seoSettings?.ogUrl?.replace(/opalvoice\.io/gi, 'zynva.com') || undefined
+  // Filter out opalvoice.io URLs and ensure correct domain
+  const ogUrl = seoSettings?.ogUrl?.replace(/opalvoice\.io/gi, 'www.zynva.in')?.replace(/zynva\.com/gi, 'www.zynva.in') || baseUrl
   
-  // Canonical URL - filter out opalvoice.io
-  const canonicalUrl = seoSettings?.canonicalUrl?.replace(/opalvoice\.io/gi, 'zynva.com') || undefined
+  // Canonical URL - filter out opalvoice.io and ensure correct domain
+  const canonicalUrl = seoSettings?.canonicalUrl?.replace(/opalvoice\.io/gi, 'www.zynva.in')?.replace(/zynva\.com/gi, 'www.zynva.in') || baseUrl
 
   const metadata: Metadata = {
     title,
@@ -73,7 +75,7 @@ export function generateSEOMetadata(
           },
         ],
       }),
-      ...(ogUrl && { url: ogUrl }),
+      url: ogUrl,
     },
     twitter: {
       card: 'summary_large_image',
