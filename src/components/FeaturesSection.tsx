@@ -142,7 +142,7 @@ function StackedCard({ feature, index, totalCards, imageUrl, imageAlt, cardRef, 
             {/* CTA Button */}
             {feature.cta && (
               <Button
-                type={feature.cta.type as "primary" | "secondary" | "video" | "primarySm" | "underline"}
+                type={feature.cta.type as "primary" | "secondary" | "video" | "primarySm" | "underline" | "animated"}
                 link={feature.cta.link}
                 target={feature.cta.target as "_blank" | "_self" | "_parent" | "_top" | "" | undefined}
                 onClick={feature.cta.onClick}
@@ -180,7 +180,7 @@ export default function FeaturesSection({ featuresSectionData }: FeaturesSection
         items: card.benefits || [],
         cta: card.cta || (cta.scheduleLink ? {
           text: 'Join Waiting List',
-          type: 'primary',
+          type: 'animated',
           link: '#cta-section',
           onClick: () => {
             trackButtonClick('feature_cta', { 

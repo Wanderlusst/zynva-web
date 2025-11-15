@@ -22,19 +22,31 @@ export async function generateMetadata(): Promise<Metadata> {
   
   try {
     const homepageData = await queries.getHomepageData()
-    const heroDescription = (homepageData.heroSection as any)?.heroSection?.description || homepageData.heroSection?.description || 'All in one solution helping business'
+    const heroDescription = (homepageData.heroSection as any)?.heroSection?.description || homepageData.heroSection?.description || 'Manage patient visits, track revenue, monitor expenses, and control inventory all from one smart dashboard. Zynva is the complete business management solution for clinics and medical practices.'
     const fallbackDescription = heroDescription
     
     return generateSEOMetadata(
       homepageData.seoSettings,
-      'Zynva',
+      'Zynva - All-in-One Business Management Software for Clinics',
       fallbackDescription
     )
   } catch (error) {
     console.error('Error generating metadata:', error)
     return {
-      title: 'Zynva',
-      description: 'All in one solution helping business',
+      title: 'Zynva - All-in-One Business Management Software for Clinics',
+      description: 'Manage patient visits, track revenue, monitor expenses, and control inventory all from one smart dashboard. Complete business management solution for clinics.',
+      keywords: [
+        'clinic management software',
+        'patient management system',
+        'medical practice software',
+        'revenue tracking software',
+        'expense management',
+        'inventory management for clinics',
+        'business insights dashboard',
+        'staff management software',
+        'billing software for clinics',
+        'healthcare business software',
+      ],
     }
   }
 }

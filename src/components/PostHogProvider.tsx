@@ -27,7 +27,9 @@ function PostHogProviderInner({ children }: { children: React.ReactNode }) {
             api_host: posthogHost,
             person_profiles: 'identified_only',
             loaded: (posthog) => {
-              
+              if (process.env.NODE_ENV === 'development') {
+                console.log('PostHog initialized successfully', posthog)
+              }
             },
             capture_pageview: false, // Manual pageview tracking only
             capture_pageleave: false, // Disabled to save events
@@ -43,8 +45,16 @@ function PostHogProviderInner({ children }: { children: React.ReactNode }) {
             // Enable request batching for better performance
             request_batching: true,
           })
+          if (process.env.NODE_ENV === 'development') {
+            console.log('PostHog initialization started with key:', posthogKey?.substring(0, 10) + '...')
+          }
         } else {
-          
+          if (process.env.NODE_ENV === 'development') {
+            console.warn('PostHog not initialized: Missing environment variables', {
+              hasKey: !!posthogKey,
+              hasHost: !!posthogHost
+            })
+          }
         }
       } catch (error) {
         console.error('PostHog initialization error:', error)
@@ -64,9 +74,18 @@ function PostHogProviderInner({ children }: { children: React.ReactNode }) {
         
         // Only track if PostHog is initialized and has a valid key
         const posthogKey = process.env.NEXT_PUBLIC_POSTHOG_KEY
-        if (posthogKey && typeof posthog.capture === 'function') {
+        if (posthogKey && posthog.__loaded && typeof posthog.capture === 'function') {
           posthog.capture('$pageview', {
             $current_url: url,
+          })
+          if (process.env.NODE_ENV === 'development') {
+            console.log('PostHog pageview tracked:', url)
+          }
+        } else if (process.env.NODE_ENV === 'development') {
+          console.warn('PostHog pageview not tracked:', {
+            hasKey: !!posthogKey,
+            isLoaded: posthog.__loaded,
+            hasCapture: typeof posthog.capture === 'function'
           })
         }
       } catch (error) {

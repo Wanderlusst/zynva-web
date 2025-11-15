@@ -1,150 +1,72 @@
 # llms.txt for Zynva Website
 # Purpose: Help language models understand page sections, hierarchy, and context
-# Last Updated: 2025-11-06
+# Last Updated: 2025-01-15
 
 [site]
 name: Zynva
-tagline: AI First Phone System & Practice Growth Platform for Therapy Clinics
-url: https://opalvoice.io
-contact: hello@opalvoice.io
+tagline: All-in-One Business Management Software for Clinics
+url: https://zynva.com
+contact: zynva@gmail.com
 
 [meta]
-description: Zynva combines an AI-first phone system with intelligent automation to streamline your front desk, track performance, and grow your therapy practice.
-keywords: AI phone system, therapy practice management, EMR integration, front desk automation, patient engagement, referrals AI, benefits verification, healthcare SaaS
+description: Manage patient visits, track revenue, monitor expenses, and control inventory all from one smart dashboard. Zynva is the complete business management solution for clinics and medical practices.
+keywords: clinic management software, patient management system, medical practice software, revenue tracking software, expense management, inventory management for clinics, business insights dashboard, staff management software, billing software for clinics, healthcare business software
 
 [sections]
 
 ## HERO
-title: AI First Phone System & Practice Growth Platform
-subtitle: To Track Front Desk Performance and Stay on Top of Every Referral
-body: Zynva combines a powerful phone system with intelligent automation to streamline your front desk and grow your therapy practice.
-cta: Schedule a Walkthrough
+title: All You Need. In One Software.
+body: Manage patient visits, track revenue, monitor expenses, and control inventory all from one smart dashboard.
+cta: Join Waiting List
 
 ---
 
-## FEATURE: Run a Tighter Front Desk
-description: Every missed call or delayed follow-up is revenue slipping away. We help you stop the leak.
+## SERVICES
+headline: Save Time Managing Your Business With Our Best Services
 features:
-- AI Phone System
-- Text and Voice Agents
-- Fax and Referrals AI
-- Lead Management Hub
-- Deep Verification™
+- Patient Management: Keep track of every visit, treatment, and history effortlessly. Manage appointments, follow-ups, and patient data in one place.
+- Revenue & Expense Tracking: Track revenue and expenses effortlessly, giving you clear insights into where you spend more and how to grow smarter.
+- Inventory Management: Never run out of essential or fast-selling products again. Track stock levels, usage, and availability in real time.
+- Business Insights: Make data-driven decisions with real-time analytics. Understand your growth, top services, and profit trends.
+- Staff & Role Management: Assign roles, set permissions, and monitor staff performance with ease. Keep your team organized, secure, and productive.
+- Billing & PDF Downloads: Simplify your billing process with accuracy and speed. Generate professional invoices, track payments, and download detailed PDF reports instantly.
 
-cta: Schedule a Walkthrough
-
----
-
-## FEATURE BLOCK: AI Phone System
-headline: A Phone System That Actually Boosts Front Desk Productivity
-bullets:
-- Live transcription & AI summaries that sync to your EHR
-- Auto-tags conversion opportunities for follow-up
-- AI scoring to monitor and coach front desk staff
-- Robust call center features for every practice size and need
-cta: Schedule a Walkthrough
+cta: Join Waiting List
 
 ---
 
-## FEATURE BLOCK: Text and Voice Agents
-headline: AI Text and Voice Agents That Fill In the Gaps
-bullets:
-- AI Voice Agents handle bookings, reschedules, and patient inquiries
-- AI SMS Bots confirm and reschedule on the spot
-- Reactivation & waitlist workflows to fill openings and bring patients back into care
-cta: Schedule a Walkthrough
+## PROCESS
+headline: Get Started with Zynva in 3 Simple Steps
+description: Migrate your data, complete quick setup, and start managing your entire clinic operations effortlessly. Everything you need, accessible in just 3 clicks.
+steps:
+- Data Migration: Seamlessly migrate your existing clinic data with our automated import tools. Transfer patient records, inventory, billing history, and more in just a few clicks.
+- Quick Setup: Configure your clinic settings, staff roles, and preferences in minutes. Our intuitive interface makes setup effortless with guided wizards.
+- Manage Everything in 3 Clicks: Access all features from one dashboard. Manage patients, track revenue, monitor expenses, control inventory, and generate reports - everything you need in just 3 clicks.
+
+cta: Join Waiting List
 
 ---
 
-## FEATURE BLOCK: Fax and Referrals AI
-headline: A Smarter Fax System That Reads, Routes, and Tracks Every Referral
-bullets:
-- AI parses faxes to capture patient and referral data
-- Intelligent routing to the right team member or EMR workflow
-- Works with your current e-fax or built-in system
-cta: Schedule a Walkthrough
+## TESTIMONIALS
+headline: What Our Customers Say
+description: See how clinics are transforming their operations with Zynva.
 
 ---
 
-## FEATURE BLOCK: Lead Management Hub
-headline: A Unified Inbox That Automagically Captures Leads
-bullets:
-- Track and book every opportunity in one place
-- Manage Prior Auth, waitlists, and staff tasks via custom boards
-- Call, text, or check benefits directly from the inbox
-cta: Schedule a Walkthrough
-
----
-
-## FEATURE BLOCK: Deep Verification™
-headline: Deep Eligibility and Benefits Checks That End the Cycle of Doubt
-bullets:
-- Combines multiple sources for complete and reliable eligibility checks
-- Syncs reports back to your EMR at the click of a button
-- Customizable benefits questionnaires built for your workflow
-cta: Schedule a Walkthrough
-
----
-
-## SECTION: Work Directly From Zynva — No Context Switching
-headline: Handle critical workflows without leaving the platform
-features:
-- Create Patients: Add new patients with auto-populated data. Two-way sync.
-- Open Cases: Create cases directly from Zynva. Instant updates.
-- Update Benefits: Push Deep Verification™ reports straight to your EMR. No copy-paste.
-- Pull Patient Data: Access profiles and appointment data for AI-driven follow-ups.
-note: Works with any therapy EMR — WebPT, Raintree, Clinicient, and more.
-
-cta: Schedule a Walkthrough
-
----
-
-## INTEGRATIONS
-headline: Works With Your Therapy EMR
-description: Deep integrations with the systems you already rely on.
-logos:
-- WebPT
-- Raintree
-- Clinicient
-- Prompt
-- Jane
-- Athena
-- eClinicalWorks
-
-cta: Request an Integration
-
----
-
-## OFFER: Free Workflow Audit
-headline: Get a Front Desk Workflow Audit — 100% Free, No Obligation
-description: Expert advice on optimizing your front desk, whether or not you use Zynva.
-byline: Dan Johnson, DPT — Founder, Total Balance Physical Therapy & Enhanced Therapy Solutions
-value:
-- Identify workflow bottlenecks
-- Get actionable recommendations
-- No sales pitch, just value
-cta: Schedule a Walkthrough
-
----
-
-## FAQ
-headline: Frequently Asked Questions
-questions:
-- How does Zynva integrate with my existing EMR?
-- Can I use Zynva if I already have a phone system?
-- How long does implementation take?
-- What makes Zynva different from other phone systems?
-- How does pricing work?
-- Is my patient data secure?
-
-contact: hello@opalvoice.io
+## CTA SECTION
+headline: Stop Losing Revenue to No-Shows & GST Errors. Get Early Access to Zynva.
+description: Join our waiting list to be notified when Zynva becomes available and see how it can transform your practice and supercharge your growth.
+cta: Get early access
 
 ---
 
 ## FOOTER
-cta: Ready to Supercharge Your Practice Growth? Book a Demo to Learn How.
-buttons: Schedule a Walkthrough
-links:
-- Privacy Policy
-- Terms of Service
-copyright: © 2025 Zynva. All rights reserved.
+description: All-in-one business management software for clinics. Manage patients, track revenue, monitor expenses, and control inventory from one smart dashboard.
+contact:
+  email: zynva@gmail.com
+  phone: +91-9876543210
+social:
+  - LinkedIn
+  - Messenger
+  - Twitter
+copyright: © 2025 Zynva. All Rights Reserved.

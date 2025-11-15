@@ -39,24 +39,6 @@ const TwooIcon = () => (
 
 // Hardcoded footer data
 const footerLinks = {
-  company: [
-    { label: 'About Us', href: '/about' },
-    { label: 'Careers', href: '/careers' },
-    { label: 'Blog', href: '/blog' },
-    { label: 'Pricing', href: '/pricing' }
-  ],
-  product: [
-    { label: 'Invoicing', href: '/invoicing' },
-    { label: 'Contract', href: '/contract' },
-    { label: 'Accounting', href: '/accounting' },
-    { label: 'Proposal', href: '/proposal' }
-  ],
-  resources: [
-    { label: 'Proposal Template', href: '/proposal-template' },
-    { label: 'Invoice Template', href: '/invoice-template' },
-    { label: 'Tutorial', href: '/tutorial' },
-    { label: 'How to write a contract', href: '/how-to-write-contract' }
-  ],
   contact: {
     email: 'zynva@gmail.com',
     phone: '+91-9876543210'
@@ -93,8 +75,8 @@ export default function Footer({ footerData }: FooterProps) {
                 </Link>
               
               {/* Description */}
-              <p className="font-manrope font-normal text-[16px] text-[#757095] leading-[28px] tracking-[-0.32px]">
-                {footerData?.description || 'Finance helps companies manage payments easily.'}
+              <p className="font-manrope font-normal text-[16px] text-black/60 leading-[28px] tracking-[-0.32px]">
+                {footerData?.description || 'All-in-one business management software for clinics. Manage patients, track revenue, monitor expenses, and control inventory from one smart dashboard.'}
               </p>
               
               {/* Social Media Icons */}
@@ -142,92 +124,32 @@ export default function Footer({ footerData }: FooterProps) {
               </div>
             </div>
 
-            {/* Right Side - Navigation Links */}
-            <div className="flex flex-col md:flex-row gap-8 md:gap-12 flex-1 justify-end">
-              {/* Company */}
-              <div className="flex flex-col gap-[18px]">
-                <h4 className="font-manrope font-bold text-[21px] text-[#181433] leading-[24px]">
-                  Company
-                </h4>
-                <div className="flex flex-col gap-[18px]">
-                  {footerLinks.company.map((link) => (
-                    <Link
-                      key={link.label}
-                      href={link.href}
-                      className="font-manrope font-normal text-[16px] text-[#181433] leading-[24px] hover:text-[#05796b] transition-colors"
-                      onClick={() => trackLinkClick(link.label, link.href, { location: 'footer' })}
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-
-              {/* Product */}
+            {/* Right Side - Contact Us */}
+            <div className="flex flex-col gap-[12px]">
+              <h4 className="font-manrope font-bold text-[21px] text-[#181433] leading-[24px]">
+                Contact Us
+              </h4>
               <div className="flex flex-col gap-[12px]">
-                <h4 className="font-manrope font-bold text-[21px] text-[#181433] leading-[24px]">
-                  Product
-                </h4>
-                <div className="flex flex-col gap-[12px]">
-                  {footerLinks.product.map((link) => (
-                    <Link
-                      key={link.label}
-                      href={link.href}
-                      className="font-manrope font-normal text-[16px] text-[#181433] leading-[24px] hover:text-[#05796b] transition-colors"
-                      onClick={() => trackLinkClick(link.label, link.href, { location: 'footer' })}
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-
-              {/* Resources */}
-              <div className="flex flex-col gap-[12px]">
-                <h4 className="font-manrope font-bold text-[21px] text-[#181433] leading-[24px]">
-                  Resources
-                </h4>
-                <div className="flex flex-col gap-[12px]">
-                  {footerLinks.resources.map((link) => (
-                    <Link
-                      key={link.label}
-                      href={link.href}
-                      className="font-manrope font-normal text-[16px] text-[#181433] leading-[24px] hover:text-[#05796b] transition-colors"
-                      onClick={() => trackLinkClick(link.label, link.href, { location: 'footer' })}
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-
-              {/* Contact Us */}
-              <div className="flex flex-col gap-[12px]">
-                <h4 className="font-manrope font-bold text-[21px] text-[#181433] leading-[24px]">
-                  Contact Us
-                </h4>
-                <div className="flex flex-col gap-[12px]">
-                  <a
-                    href={`mailto:${footerLinks.contact.email}`}
-                    className="font-manrope font-normal text-[16px] text-[#181433] leading-[24px] hover:text-[#05796b] transition-colors flex items-center gap-2"
-                    onClick={() => trackLinkClick('Email', `mailto:${footerLinks.contact.email}`, { location: 'footer' })}
-                  >
-                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M1 2C0.447715 2 0 2.44772 0 3V12C0 12.5523 0.447715 13 1 13H14C14.5523 13 15 12.5523 15 12V3C15 2.44772 14.5523 2 14 2H1ZM1 3H14V3.5L7.5 7.75L1 3.5V3ZM1 4.25L7.5 8.5L14 4.25V12H1V4.25Z" fill="#181433"/>
-                    </svg>
-                    {footerLinks.contact.email}
-                  </a>
-                  <a
-                    href={`tel:${footerLinks.contact.phone.replace(/-/g, '')}`}
-                    className="font-manrope font-normal text-[16px] text-[#181433] leading-[24px] hover:text-[#05796b] transition-colors flex items-center gap-2"
-                    onClick={() => trackLinkClick('Phone', `tel:${footerLinks.contact.phone}`, { location: 'footer' })}
-                  >
-                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M3.65432 1.08108C3.78261 0.698864 4.18284 0.5 4.5 0.5H10.5C10.8172 0.5 11.2174 0.698864 11.3457 1.08108L12.8457 5.58108C12.9739 5.96329 12.8172 6.5 12.5 6.5H11V12.5C11 12.7761 10.7761 13 10.5 13H4.5C4.22386 13 4 12.7761 4 12.5V6.5H2.5C2.18284 6.5 2.02609 5.96329 2.15432 5.58108L3.65432 1.08108ZM4.72386 1.5L3.42386 5.5H4.5V12.5H10.5V5.5H11.5761L10.2761 1.5H4.72386Z" fill="#181433"/>
-                    </svg>
-                    {footerLinks.contact.phone}
-                  </a>
-                </div>
+                <a
+                  href={`mailto:${footerLinks.contact.email}`}
+                  className="font-manrope font-normal text-[16px] text-[#181433] leading-[24px] hover:text-[#05796b] transition-colors flex items-center gap-2"
+                  onClick={() => trackLinkClick('Email', `mailto:${footerLinks.contact.email}`, { location: 'footer' })}
+                >
+                  <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 2C0.447715 2 0 2.44772 0 3V12C0 12.5523 0.447715 13 1 13H14C14.5523 13 15 12.5523 15 12V3C15 2.44772 14.5523 2 14 2H1ZM1 3H14V3.5L7.5 7.75L1 3.5V3ZM1 4.25L7.5 8.5L14 4.25V12H1V4.25Z" fill="#181433"/>
+                  </svg>
+                  {footerLinks.contact.email}
+                </a>
+                <a
+                  href={`tel:${footerLinks.contact.phone.replace(/-/g, '')}`}
+                  className="font-manrope font-normal text-[16px] text-[#181433] leading-[24px] hover:text-[#05796b] transition-colors flex items-center gap-2"
+                  onClick={() => trackLinkClick('Phone', `tel:${footerLinks.contact.phone}`, { location: 'footer' })}
+                >
+                  <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3.65432 1.08108C3.78261 0.698864 4.18284 0.5 4.5 0.5H10.5C10.8172 0.5 11.2174 0.698864 11.3457 1.08108L12.8457 5.58108C12.9739 5.96329 12.8172 6.5 12.5 6.5H11V12.5C11 12.7761 10.7761 13 10.5 13H4.5C4.22386 13 4 12.7761 4 12.5V6.5H2.5C2.18284 6.5 2.02609 5.96329 2.15432 5.58108L3.65432 1.08108ZM4.72386 1.5L3.42386 5.5H4.5V12.5H10.5V5.5H11.5761L10.2761 1.5H4.72386Z" fill="#181433"/>
+                  </svg>
+                  {footerLinks.contact.phone}
+                </a>
               </div>
             </div>
           </div>
@@ -236,7 +158,7 @@ export default function Footer({ footerData }: FooterProps) {
           <div className="bg-[#f8f8fe] h-[2px] w-full" />
 
           {/* Copyright */}
-          <div className="flex items-center justify-center py-4">
+          <div className="flex items-center justify-center ">
             <p className=" font-normal text-base font-geist text-[#181433] leading-[26px] tracking-[-0.48px] text-center capitalize">
               Copyright @ {new Date().getFullYear()} Zynva. All Rights Reserved.
             </p>

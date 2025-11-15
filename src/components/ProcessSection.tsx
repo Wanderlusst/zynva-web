@@ -10,18 +10,18 @@ import Button from './Button';
 // Hardcoded process steps data
 const processSteps = [
   {
-    title: 'Register',
-    description: 'It more shed went up is roof if loud case. Delay music in lived noise an.',
+    title: 'Data Migration',
+    description: 'Seamlessly migrate your existing clinic data with our automated import tools. Transfer patient records, inventory, billing history, and more in just a few clicks.',
     icon: 'profile-circle'
   },
   {
-    title: 'Complete Setup',
-    description: 'Beyond genius really enough passed is up. Up maids me an ample stood given.',
+    title: 'Quick Setup',
+    description: 'Configure your clinic settings, staff roles, and preferences in minutes. Our intuitive interface makes setup effortless with guided wizards.',
     icon: 'setting-2'
   },
   {
-    title: 'Utilize App',
-    description: 'Certainty say suffering his him collected intention promotion. Hill sold ham men.',
+    title: 'Manage Everything in 3 Clicks',
+    description: 'Access all features from one dashboard. Manage patients, track revenue, monitor expenses, control inventory, and generate reports - everything you need in just 3 clicks.',
     icon: 'flash'
   }
 ];
@@ -65,32 +65,25 @@ export default function ProcessSection() {
   const { cta } = useCTA();
   
   return (
-    <Section bgColor="gray" padding="default" style={{scrollMarginTop: '73px'}}>
+    <Section id="process" bgColor="gray" padding="default" style={{scrollMarginTop: '73px'}}>
       <Container className='flex flex-col gap-12 md:gap-16'>
         {/* Section Header */}
         <SectionHeader
-          heading="Learn More About Process"
-          description="Was are delightful solicitude discovered collecting man day. Resolving neglected sir tolerably."
+          heading="Get Started with Zynva in 3 Simple Steps"
+          description="Migrate your data, complete quick setup, and start managing your entire clinic operations effortlessly. Everything you need, accessible in just 3 clicks."
         />
 
         {/* Process Steps */}
         <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12 lg:gap-16 relative">
           {processSteps.map((step, index) => (
             <div key={index} className="flex flex-col items-center gap-[54px] relative w-full md:w-auto max-w-[320px]">
-              {/* Step Number Badge */}
-              <div className="hidden md:flex absolute left-[-60px] top-[20px] bg-[#f6f6f7] rounded-[80px] size-[40px] items-center justify-center shadow-[8px_8px_80px_0px_rgba(167,167,167,0.8)]">
-                <span className="font-['B612_Mono',monospace] font-bold text-[18px] text-black tracking-[-0.9px]">
-                  {index + 1}
-                </span>
-              </div>
-
               {/* Icon Container */}
-              <div className={`relative rounded-[80px] size-[160px] flex items-center justify-center ${
+              <div className={`relative rounded-[80px] size-[160px] flex items-center justify-center process-icon-container ${
                 index % 2 === 0 
                   ? 'bg-[#ffd9cf]' 
                   : 'bg-[#cdeedd]'
               }`}>
-                <div className="relative size-[80px] flex items-center justify-center">
+                <div className="relative size-[80px] flex items-center justify-center process-icon">
                   {getIcon(step.icon)}
                 </div>
               </div>
@@ -100,19 +93,10 @@ export default function ProcessSection() {
                 <h3 className="font-manrope font-semibold text-[24px] text-[#282828] leading-[1.15] tracking-[-1.2px]">
                   {step.title}
                 </h3>
-                <p className="font-manrope font-normal text-[16px] text-[#757095] leading-[32px] tracking-[-0.32px] whitespace-pre-wrap max-w-[320px]">
+                <p className="font-manrope font-normal text-[16px] text-black/60 leading-[32px] tracking-[-0.32px] whitespace-pre-wrap max-w-[320px]">
                   {step.description}
                 </p>
               </div>
-
-              {/* Connector Line (between steps) */}
-              {index < processSteps.length - 1 && (
-                <div className="hidden md:block absolute right-[-80px] top-[80px] w-[169.5px] h-[37.767px]">
-                  <svg width="170" height="38" viewBox="0 0 170 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M0 19L170 19" stroke="black" strokeWidth="2" strokeDasharray="4 4"/>
-                  </svg>
-                </div>
-              )}
             </div>
           ))}
         </div>
@@ -121,17 +105,20 @@ export default function ProcessSection() {
         {cta.scheduleLink && (
           <div className="text-center flex justify-center pt-4">
             <Button 
-              type="primaryV3"
-              link="/schedule"
-              target="_blank"
+              type="animated"
+              link="#cta-section"
               onClick={() => {
                 trackButtonClick('process_section_walkthrough', { 
                   section: 'process',
                   action: 'schedule_walkthrough'
-                })
+                });
+                const ctaSection = document.getElementById('cta-section');
+                if (ctaSection) {
+                  ctaSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
               }}
             >
-              <span>Schedule a Walkthrough</span>
+              <span>Join Waiting List</span>
             </Button>
           </div>
         )}

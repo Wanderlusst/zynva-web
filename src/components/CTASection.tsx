@@ -158,9 +158,11 @@ export default function CTASection() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="bg-[#01b59e] hover:bg-[#019a87] disabled:opacity-50 disabled:cursor-not-allowed text-white font-manrope font-bold text-lg px-8 py-4 rounded-[50px] transition-all duration-300 shadow-lg hover:shadow-xl"
+                  className="bg-[#01b59e] hover:bg-[#019a87] disabled:opacity-50 disabled:cursor-not-allowed font-manrope px-8 py-4 rounded-[50px] transition-all duration-300 shadow-lg hover:shadow-xl relative overflow-hidden"
               >
-                  {isSubmitting ? 'Submitting...' : 'Get Started Now'}
+                  <span className={isSubmitting ? '' : 'btn-shine'}>
+                    {isSubmitting ? 'Submitting...' : 'Get early access'}
+                  </span>
                 </button>
                 
                 {submitStatus === 'error' && (

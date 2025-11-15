@@ -168,7 +168,7 @@ export default function IntegrationsSection({ integrationData }: IntegrationsSec
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-center justify-center ">
           {cta.scheduleLink && (
             <Button
-              type="primaryV3"
+              type="animated"
               link="#cta-section"
               onClick={() => {
                 trackButtonClick('integration_walkthrough', { 

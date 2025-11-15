@@ -124,7 +124,7 @@ export default function TestimonialSection({ testimonialsSection }: Props) {
         {cta.scheduleLink && (
           <div className="flex justify-center ">
             <Button 
-              type="primaryV3"
+              type="animated"
               link="#cta-section"
               onClick={() => {
                 trackButtonClick('testimonial_walkthrough', { 

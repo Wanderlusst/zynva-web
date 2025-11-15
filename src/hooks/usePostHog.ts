@@ -7,8 +7,18 @@ export const usePostHog = () => {
 
   const trackEvent = (eventName: string, properties?: Record<string, any>) => {
     try {
-      if (posthog && typeof posthog.capture === 'function') {
+      if (posthog && posthog.__loaded && typeof posthog.capture === 'function') {
         posthog.capture(eventName, properties)
+        if (process.env.NODE_ENV === 'development') {
+          console.log('PostHog event tracked:', eventName, properties)
+        }
+      } else if (process.env.NODE_ENV === 'development') {
+        console.warn('PostHog not ready to track event:', {
+          eventName,
+          hasPosthog: !!posthog,
+          isLoaded: posthog?.__loaded,
+          hasCapture: typeof posthog?.capture === 'function'
+        })
       }
     } catch (error) {
       // Silently fail - don't break the app
