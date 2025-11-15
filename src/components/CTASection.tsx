@@ -113,11 +113,11 @@ export default function CTASection() {
           {/* Main Content */}
           <div className="relative z-10 flex flex-col items-center gap-8 text-center max-w-[763px] w-full">
             {/* Heading Card */}
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 md:p-8 border border-white/20 shadow-lg w-full">
-              <h2 className="font-manrope font-bold text-xl md:text-4xl text-white leading-normal md:leading-[50px] tracking-normal md:tracking-[-1.2px]">
-            Stop Losing Revenue to No-Shows & GST Errors. Get Early Access to Zynva.
+            {/* <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 md:p-8 border border-white/20 shadow-lg w-full"> */}
+              <h2 className="font-manrope font-bold text-xl md:text-4xl text-white leading-normal md:leading-[50px] tracking-normal">
+                Curious to know more? Join our waitlist today and be the first to experience it.
             </h2>
-            </div>
+            {/* </div> */}
 
             {/* Show form or success message */}
             {submitStatus === 'success' ? (
@@ -158,9 +158,9 @@ export default function CTASection() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="bg-[#01b59e] hover:bg-[#019a87] disabled:opacity-50 disabled:cursor-not-allowed font-manrope px-8 py-4 rounded-[50px] transition-all duration-300 shadow-lg hover:shadow-xl relative overflow-hidden"
+                  className="bg-[#01b59e] text-white hover:bg-[#019a87] disabled:opacity-50 disabled:cursor-not-allowed font-manrope px-8 py-4 rounded-[50px] transition-all duration-300 shadow-lg hover:shadow-xl relative overflow-hidden"
               >
-                  <span className={isSubmitting ? '' : 'btn-shine'}>
+                  <span className={isSubmitting ? 'text-white' : 'text-white font-medium md:text-xl text-base btn-shine'}>
                     {isSubmitting ? 'Submitting...' : 'Get early access'}
                   </span>
                 </button>

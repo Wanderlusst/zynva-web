@@ -1,15 +1,7 @@
 import { Metadata } from 'next'
 
-import EMRIntegrationSection from '@/components/EMRIntegrationSection';
-import FAQSection from '@/components/FAQSection';
-import FeaturesSection from '@/components/FeaturesSection';
-import FlexibilitySection from '@/components/FlexibilitySection';
 import HeroSection from '@/components/HeroSection';
-import IntegrationsSection from '@/components/IntegrationsSection';
-import LogoCloud from '@/components/LogoCloud';
-import AppDownloadSection from '@/components/AppDownloadSection';
 import CTASection from '@/components/CTASection';
-import PricingSection from '@/components/PricingSection';
 import ProcessSection from '@/components/ProcessSection';
 import ServicesSection from '@/components/ServicesSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
@@ -28,7 +20,7 @@ export async function generateMetadata(): Promise<Metadata> {
     return generateSEOMetadata(
       homepageData.seoSettings,
       'Zynva - All-in-One Business Management Software for Clinics',
-      fallbackDescription
+      
     )
   } catch (error) {
     console.error('Error generating metadata:', error)

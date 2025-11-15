@@ -85,13 +85,13 @@ export default function Footer({ footerData }: FooterProps) {
                   href="https://linkedin.com" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  onClick={() => trackLinkClick('LinkedIn', 'https://linkedin.com', { location: 'footer' })}
+                  onClick={() => trackLinkClick('LinkedIn', 'https://www.linkedin.com/company/zynva/about/?viewAsMember=true', { location: 'footer' })}
                   className="hover:opacity-70 transition-opacity"
                   aria-label="LinkedIn"
                 >
                   <LinkedInIcon />
                 </Link>
-                <Link 
+                {/* <Link 
                   href="https://messenger.com" 
                   target="_blank" 
                   rel="noopener noreferrer"
@@ -120,7 +120,7 @@ export default function Footer({ footerData }: FooterProps) {
                   aria-label="Twoo"
                 >
                   <TwooIcon />
-                </Link>
+                </Link> */}
               </div>
             </div>
 

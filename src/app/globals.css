@@ -369,7 +369,7 @@ fieldset .hs-form-field label {
 }
 
 /* Button Shine Animation */
-.btn-shine {
+/* .btn-shine {
   position: relative;
   color: #fff;
   background: linear-gradient(to right, #9f9f9f 0, #fff 10%, #868686 20%);
@@ -385,7 +385,7 @@ fieldset .hs-form-field label {
   font-size: 16px;
   text-decoration: none;
   white-space: nowrap;
-}
+} */
 
 @-moz-keyframes shine {
   0% {
