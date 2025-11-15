@@ -624,26 +624,9 @@ fieldset .hs-form-field label {
 }
 
 .process-icon-container {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.process-icon-container:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  /* No hover effects */
 }
 
 .process-icon {
   animation: iconFloat 3s ease-in-out infinite;
-}
-
-.process-icon svg {
-  transition: transform 0.3s ease;
-}
-
-.process-icon-container:hover .process-icon {
-  animation: iconPulse 1s ease-in-out infinite;
-}
-
-.process-icon-container:hover .process-icon svg {
-  transform: rotate(10deg) scale(1.1);
 }
