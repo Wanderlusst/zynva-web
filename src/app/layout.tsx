@@ -70,9 +70,9 @@ export const metadata: Metadata = {
     siteName: 'Zynva',
     images: [
       {
-        url: '/og-image.jpg',
-        width: 1200,
-        height: 630,
+        url: 'https://cdn.sanity.io/images/jni56u7c/develop/8f9458c1cb8bdb43503c7c5b518f76c7b373d10f-1408x736.png',
+        width: 1408,
+        height: 736,
         alt: 'Zynva - All-in-One Business Management Software',
       },
     ],
@@ -81,7 +81,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Zynva - All-in-One Business Management Software for Clinics',
     description: 'Manage patient visits, track revenue, monitor expenses, and control inventory all from one smart dashboard.',
-    images: ['/og-image.jpg'],
+    images: ['https://cdn.sanity.io/images/jni56u7c/develop/8f9458c1cb8bdb43503c7c5b518f76c7b373d10f-1408x736.png'],
   },
   robots: {
     index: true,
@@ -141,7 +141,7 @@ function getStructuredData() {
     '@type': 'Organization',
     name: 'Zynva',
     url: baseUrl,
-    logo: `${baseUrl}/og-image.jpg`,
+    logo: 'https://cdn.sanity.io/images/jni56u7c/develop/8f9458c1cb8bdb43503c7c5b518f76c7b373d10f-1408x736.png',
     description: 'All-in-One Business Management Software for Clinics',
     contactPoint: {
       '@type': 'ContactPoint',
@@ -202,7 +202,7 @@ function getStructuredData() {
       'Business Analytics',
       'Appointment Scheduling',
     ],
-    screenshot: `${baseUrl}/og-image.jpg`,
+    screenshot: 'https://cdn.sanity.io/images/jni56u7c/develop/8f9458c1cb8bdb43503c7c5b518f76c7b373d10f-1408x736.png',
   }
 
   return [organization, website, softwareApplication]
