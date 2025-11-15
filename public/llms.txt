@@ -5,7 +5,7 @@
 [site]
 name: Zynva
 tagline: All-in-One Business Management Software for Clinics
-url: https://zynva.com
+url: https://zynva.in
 contact: thezynva@gmail.com
 
 [meta]

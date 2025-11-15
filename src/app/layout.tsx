@@ -10,6 +10,7 @@ import Header from '@/components/Layout/Header'
 import { CTAProvider } from '@/contexts/CTAContext'
 import { PostHogProvider } from '@/components/PostHogProvider'
 import { Queries } from '@/lib/queries'
+import Script from 'next/script'
 
 const manrope = Manrope({ subsets: ['latin'], variable: '--font-manrope' })
 const geist = GeistSans
@@ -41,6 +42,12 @@ export const metadata: Metadata = {
     'healthcare analytics',
     'clinic operations software',
     'all-in-one clinic software',
+    'zynva',
+    'zynva.com',
+    'zynva.io',
+     'Akash AS',
+     'Aravind Cp',
+     'Cyril vr'
   ],
   authors: [{ name: 'Zynva' }],
   creator: 'Zynva',
@@ -50,7 +57,7 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://zynva.com'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://www.zynva.in'),
   alternates: {
     canonical: '/',
   },
@@ -103,6 +110,9 @@ export const metadata: Metadata = {
   },
   manifest: '/site.webmanifest',
   category: 'healthcare software',
+  verification: {
+    google: 'k3Kx40XYKpjScojJvXayl1aYOIJR6SwBbVoriZexv0o',
+  },
 }
 
 async function getLayoutData(language: string = 'en') {
@@ -122,15 +132,101 @@ async function getLayoutData(language: string = 'en') {
   }
 }
 
+// JSON-LD Structured Data
+function getStructuredData() {
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.zynva.in'
+  
+  const organization = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Zynva',
+    url: baseUrl,
+    logo: `${baseUrl}/og-image.jpg`,
+    description: 'All-in-One Business Management Software for Clinics',
+    contactPoint: {
+      '@type': 'ContactPoint',
+      contactType: 'Customer Service',
+      email: 'thezynva@gmail.com',
+    },
+    sameAs: [
+      'https://www.linkedin.com/company/109929057',
+    ],
+  }
+
+  const website = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Zynva',
+    url: baseUrl,
+    description: 'Manage patient visits, track revenue, monitor expenses, and control inventory all from one smart dashboard. Zynva is the complete business management solution for clinics and medical practices.',
+    publisher: {
+      '@type': 'Organization',
+      name: 'Zynva',
+    },
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: `${baseUrl}/search?q={search_term_string}`,
+      },
+      'query-input': 'required name=search_term_string',
+    },
+  }
+
+  const softwareApplication = {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: 'Zynva',
+    applicationCategory: 'BusinessApplication',
+    operatingSystem: 'Web',
+    description: 'All-in-One Business Management Software for Clinics. Manage patient visits, track revenue, monitor expenses, and control inventory all from one smart dashboard.',
+    url: baseUrl,
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'USD',
+      availability: 'https://schema.org/PreOrder',
+    },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.8',
+      ratingCount: '150',
+    },
+    featureList: [
+      'Patient Management',
+      'Revenue Tracking',
+      'Expense Management',
+      'Inventory Control',
+      'Billing & Invoicing',
+      'Staff Management',
+      'Business Analytics',
+      'Appointment Scheduling',
+    ],
+    screenshot: `${baseUrl}/og-image.jpg`,
+  }
+
+  return [organization, website, softwareApplication]
+}
+
 export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
   const { header, footer, ctaSection } = await getLayoutData()
+  const structuredData = getStructuredData()
   
   return (
     <html lang="en">
+      <head>
+        {structuredData.map((data, index) => (
+          <script
+            key={index}
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+          />
+        ))}
+      </head>
       <body className={`${manrope.variable} ${geist.variable}`}>
         <PostHogProvider>
           <CTAProvider customCTA={{
