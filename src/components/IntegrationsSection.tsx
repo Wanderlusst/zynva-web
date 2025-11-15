@@ -1,13 +1,11 @@
 'use client';
 
-import { useState } from 'react';
 import Image from 'next/image';
 import { usePostHog } from '@/hooks/usePostHog';
 import { useCTA } from '@/contexts/CTAContext';
 import { IntegrationSectionData } from '@/types/cms';
 import { Container, Section, SectionHeader } from './structure';
 import Button from './Button';
-import { FormModal } from './Hubspot/FormModal';
 
 interface IntegrationsSectionProps {
   integrationData?: IntegrationSectionData | null;
@@ -16,7 +14,6 @@ interface IntegrationsSectionProps {
 export default function IntegrationsSection({ integrationData }: IntegrationsSectionProps) {
   const { trackButtonClick } = usePostHog();
   const { cta } = useCTA();
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   // Use CMS data if available, otherwise show nothing
   const therapyEMRs = integrationData?.therapyEMRs || [];
@@ -185,25 +182,22 @@ export default function IntegrationsSection({ integrationData }: IntegrationsSec
               <span>Join Waiting List</span>
             </Button>
           )}
-          <button
+          <Button
+            type="animated"
+            link="#cta-section"
             onClick={() => {
               trackButtonClick('request_integration', { section: 'integrations' })
-              setIsModalOpen(true)
+              const ctaSection = document.getElementById('cta-section');
+              if (ctaSection) {
+                ctaSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }
             }}
-            className="backdrop-blur-sm bg-white/10 border-2 border-white/40 rounded-lg px-4 sm:px-6 py-2.5 sm:py-2.5 text-white text-sm sm:text-base whitespace-nowrap hover:bg-white/20 transition-colors font-geist w-full sm:w-auto"
+            className="w-full sm:w-auto"
           >
-            Request an Integration
-          </button>
+            <span>Request an Integration</span>
+          </Button>
         </div>
       </Container>
-      
-      {isModalOpen && (
-        <FormModal
-          onClose={() => setIsModalOpen(false)}
-          source="integrations_section"
-          source1="request_integration_button"
-        />
-      )}
     </Section>
   );
 }

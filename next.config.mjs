@@ -1,8 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
-    // Enable the new app directory
-    appDir: true,
     // Enable instrumentation
     instrumentationHook: true,
   },
