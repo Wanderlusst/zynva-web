@@ -3,6 +3,9 @@
 import React from 'react';
 
 import { Container, Section, SectionHeader } from './structure';
+import Button from './Button';
+import { usePostHog } from '@/hooks/usePostHog';
+import { useCTA } from '@/contexts/CTAContext';
 
 // Service card data
 const services = [
@@ -119,8 +122,10 @@ const getIcon = (iconName: string | null) => {
 };
 
 export default function ServicesSection() {
+  const { trackButtonClick } = usePostHog();
+  const { cta } = useCTA();
   return (
-    <Section bgColor="white" padding="default" style={{scrollMarginTop: '73px'}}>
+    <Section id="services" bgColor="white" padding="default" style={{scrollMarginTop: '73px'}}>
       <Container className='flex flex-col gap-12 md:gap-16'>
         {/* Section Header */}
         <SectionHeader
@@ -159,6 +164,27 @@ export default function ServicesSection() {
             </div>
           ))}
         </div>
+
+        {cta.scheduleLink && (
+          <div className="text-center flex justify-center pt-4">
+            <Button 
+              type="animated"
+              link="#cta-section"
+              onClick={() => {
+                trackButtonClick('process_section_walkthrough', { 
+                  section: 'process',
+                  action: 'schedule_walkthrough'
+                });
+                const ctaSection = document.getElementById('cta-section');
+                if (ctaSection) {
+                  ctaSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+              }}
+            >
+              <span>Join Waiting List</span>
+            </Button>
+          </div>
+        )}
       </Container>
     </Section>
   );

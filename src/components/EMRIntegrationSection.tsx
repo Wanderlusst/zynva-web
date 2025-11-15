@@ -114,7 +114,7 @@ export default function EMRIntegrationSection({ emrIntegrationData }: EMRIntegra
         {cta.scheduleLink && (
           <div className="text-center flex justify-center">
             <Button 
-              type="primaryV3"
+              type="animated"
               link="#cta-section"
               onClick={() => {
                 trackButtonClick('emr_integration_walkthrough', { 

@@ -44,7 +44,7 @@ export default function HeroSection({ heroSectionData }: HeroSectionProps) {
   const description = heroSectionData?.heroSection?.description || "Never at water me might. On formed merits hunted unable merely by mr whence or. Possession the unpleasing simplicity her uncommonly.";
 
   return (
-    <Section className="w-full flex flex-col items-center relative overflow-hidden min-h-[60vh] md:min-h-screen">
+    <Section className="w-full flex flex-col items-center relative overflow-hidden min-h-[75vh] md:min-h-screen">
       {/* Background Video - Full Width and Height */}
       <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
         <div className="absolute inset-0 w-full h-full">
@@ -92,7 +92,7 @@ export default function HeroSection({ heroSectionData }: HeroSectionProps) {
             <div className="flex gap-[18px] md:pt-0 pt-2 items-center justify-center">
               {cta.scheduleLink && (
                 <Button
-                  type="primaryV3"
+                  type="animated"
                   link="#cta-section"
                   onClick={() => {
                     trackButtonClick('hero_cta', { 

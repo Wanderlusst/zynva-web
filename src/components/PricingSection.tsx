@@ -150,7 +150,7 @@ export default function PricingSection() {
               {/* CTA Button */}
               {plan.isPremium ? (
                 <Button
-                  type="primaryV3"
+                  type="animated"
                   link={cta.scheduleLink ? "#cta-section" : undefined}
                   onClick={() => {
                     trackButtonClick('pricing_premium_cta', { 

@@ -68,37 +68,68 @@ export default function Header({ headerData, footerData }: HeaderProps) {
           {/* Logo Section */}
           <div className="flex items-center ">
             <div className="flex items-center gap-2">
-              {/* Logo - using CMS data or placeholder */}
               <div className="flex items-center gap-1 max-h-[40px] w-full">
                 <Link href="/">
-                {footerData?.logo?.asset?.url ? (
-                  // Always use footer logo on mobile (header is white), conditionally on desktop
-                  <Image
-                    src={footerData.logo.asset.url}
-                    alt={footerData.logo.alt || 'Logo'}
-                    width={100}
-                    height={100}
-                    className="object-cover max-h-[40px] w-full"
-                  />
-                ) : headerData?.logoImage?.asset?.url ? (
-                  <Image
-                    src={headerData.logoImage.asset.url}
-                    alt={headerData.logoImage.alt || 'Logo'}
-                    width={100}
-                    height={100}
-                    className="object-cover max-h-[40px] w-full"
-                  />
-                ) : headerData?.logoText ? (
-                  <div className={`text-sm sm:text-base text-black ${
-                    hasWhiteBackground ? 'md:text-black' : 'md:text-white'
-                  }`} style={{ fontFamily: 'var(--font-manrope)' }}>
-                    <span className="font-semibold">{headerData.logoText}</span>
-                  </div>
-                ) : (
-                  <div className="w-6 h-6 sm:w-8 sm:h-8 bg-[#01b59e] rounded-lg flex items-center justify-center">
-                    <span className="text-white font-bold text-xs sm:text-sm">N</span>
-                  </div>
-                )}
+                {(() => {
+                  // Desktop: white logo by default, black logo when scrolling up
+                  // Mobile: always use footer logo (black) since header is always white
+                  const blackLogoUrl = footerData?.logo?.asset?.url;
+                  const whiteLogoUrl = headerData?.logoImage?.asset?.url;
+                  
+                  // On desktop: use black logo when scrolling up, white logo otherwise
+                  // On mobile: always use black logo
+                  const shouldUseBlackLogo = isMobile 
+                    ? !!blackLogoUrl 
+                    : (isScrollingUp && lastScrollY > 10 && !!blackLogoUrl);
+                  const shouldUseWhiteLogo = !isMobile && !shouldUseBlackLogo && !!whiteLogoUrl;
+                  
+                  if (shouldUseBlackLogo && footerData?.logo?.asset?.url) {
+                    return (
+                      <Image
+                        src={footerData.logo.asset.url}
+                        alt={footerData.logo.alt || 'Logo'}
+                        width={100}
+                        height={100}
+                        className="object-cover max-h-[40px] w-full"
+                      />
+                    );
+                  } else if (shouldUseWhiteLogo && headerData?.logoImage?.asset?.url) {
+                    return (
+                      <Image
+                        src={headerData.logoImage.asset.url}
+                        alt={headerData.logoImage.alt || 'Logo'}
+                        width={100}
+                        height={100}
+                        className="object-cover max-h-[40px] w-full"
+                      />
+                    );
+                  } else if (blackLogoUrl && footerData?.logo) {
+                    // Fallback to footer logo if white logo not available
+                    return (
+                      <Image
+                        src={footerData.logo.asset.url}
+                        alt={footerData.logo.alt || 'Logo'}
+                        width={100}
+                        height={100}
+                        className="object-cover max-h-[40px] w-full"
+                      />
+                    );
+                  } else if (headerData?.logoText) {
+                    return (
+                      <div className={`text-sm sm:text-base text-black ${
+                        hasWhiteBackground ? 'md:text-black' : 'md:text-white'
+                      }`} style={{ fontFamily: 'var(--font-manrope)' }}>
+                        <span className="font-semibold">{headerData.logoText}</span>
+                      </div>
+                    );
+                  } else {
+                    return (
+                      <div className="w-6 h-6 sm:w-8 sm:h-8 bg-[#01b59e] rounded-lg flex items-center justify-center">
+                        <span className="text-white font-bold text-xs sm:text-sm">N</span>
+                      </div>
+                    );
+                  }
+                })()}
                 </Link>
               </div>
             </div>
@@ -115,7 +146,13 @@ export default function Header({ headerData, footerData }: HeaderProps) {
                   trackLinkClick('Services Nav', '#services', { location: 'header' });
                   const servicesSection = document.getElementById('services');
                   if (servicesSection) {
-                    servicesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    const headerHeight = 73;
+                    const elementPosition = servicesSection.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+                    window.scrollTo({
+                      top: offsetPosition,
+                      behavior: 'smooth'
+                    });
                   }
                 }}
                 className={`text-base font-medium leading-6 hover:text-[#01b59e] transition-colors font-geist ${
@@ -131,7 +168,13 @@ export default function Header({ headerData, footerData }: HeaderProps) {
                   trackLinkClick('Process Nav', '#process', { location: 'header' });
                   const processSection = document.getElementById('process');
                   if (processSection) {
-                    processSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    const headerHeight = 73;
+                    const elementPosition = processSection.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+                    window.scrollTo({
+                      top: offsetPosition,
+                      behavior: 'smooth'
+                    });
                   }
                 }}
                 className={`text-base font-medium leading-6 hover:text-[#01b59e] transition-colors font-geist ${
@@ -147,7 +190,13 @@ export default function Header({ headerData, footerData }: HeaderProps) {
                   trackLinkClick('Testimonial Nav', '#testimonial', { location: 'header' });
                   const testimonialSection = document.getElementById('testimonial');
                   if (testimonialSection) {
-                    testimonialSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    const headerHeight = 73;
+                    const elementPosition = testimonialSection.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+                    window.scrollTo({
+                      top: offsetPosition,
+                      behavior: 'smooth'
+                    });
                   }
                 }}
                 className={`text-base font-medium leading-6 hover:text-[#01b59e] transition-colors font-geist ${
@@ -165,12 +214,12 @@ export default function Header({ headerData, footerData }: HeaderProps) {
             <div className="hidden md:flex gap-[18px] md:pt-0 pt-2 items-start">
               {cta.scheduleLink && (
                 <Button
-                  type="primaryV3"
+                  type="animated"
                   link="#cta-section"
                   onClick={() => {
                     trackButtonClick('hero_cta', { 
                       section: 'hero',
-                      button_text: cta.primaryButtonText || 'Try for free',
+                      button_text: 'Join Waiting List',
                       action: 'schedule_walkthrough'
                     });
                     const ctaSection = document.getElementById('cta-section');
@@ -179,7 +228,7 @@ export default function Header({ headerData, footerData }: HeaderProps) {
                     }
                   }}
                 >
-                  <span>{cta.primaryButtonText || 'Try for free'}</span>
+                  <span>Join Waiting List</span>
                 </Button>
               )}
             </div>
@@ -219,10 +268,18 @@ export default function Header({ headerData, footerData }: HeaderProps) {
                   e.preventDefault();
                   trackLinkClick('Services Nav', '#services', { location: 'mobile_menu' });
                   setIsMenuOpen(false);
-                  const servicesSection = document.getElementById('services');
-                  if (servicesSection) {
-                    servicesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                  }
+                  setTimeout(() => {
+                    const servicesSection = document.getElementById('services');
+                    if (servicesSection) {
+                      const headerHeight = 73;
+                      const elementPosition = servicesSection.getBoundingClientRect().top;
+                      const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+                      window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                      });
+                    }
+                  }, 100);
                 }}
               >
                 Services
@@ -234,10 +291,18 @@ export default function Header({ headerData, footerData }: HeaderProps) {
                   e.preventDefault();
                   trackLinkClick('Process Nav', '#process', { location: 'mobile_menu' });
                   setIsMenuOpen(false);
-                  const processSection = document.getElementById('process');
-                  if (processSection) {
-                    processSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                  }
+                  setTimeout(() => {
+                    const processSection = document.getElementById('process');
+                    if (processSection) {
+                      const headerHeight = 73;
+                      const elementPosition = processSection.getBoundingClientRect().top;
+                      const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+                      window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                      });
+                    }
+                  }, 100);
                 }}
               >
                 Process
@@ -249,10 +314,18 @@ export default function Header({ headerData, footerData }: HeaderProps) {
                   e.preventDefault();
                   trackLinkClick('Testimonial Nav', '#testimonial', { location: 'mobile_menu' });
                   setIsMenuOpen(false);
-                  const testimonialSection = document.getElementById('testimonial');
-                  if (testimonialSection) {
-                    testimonialSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                  }
+                  setTimeout(() => {
+                    const testimonialSection = document.getElementById('testimonial');
+                    if (testimonialSection) {
+                      const headerHeight = 73;
+                      const elementPosition = testimonialSection.getBoundingClientRect().top;
+                      const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+                      window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                      });
+                    }
+                  }, 100);
                 }}
               >
                 Testimonial
@@ -261,12 +334,12 @@ export default function Header({ headerData, footerData }: HeaderProps) {
               {cta.scheduleLink && (
                 <div className="pt-4">
                   <Button 
-                    type="primaryV3"
+                    type="animated"
                     link="#cta-section"
                     onClick={() => {
                       trackButtonClick('mobile_header_cta', { 
                         location: 'mobile_menu', 
-                        button_text: headerData?.ctaButton?.text || cta.primaryButtonText,
+                        button_text: 'Join Waiting List',
                         action: 'schedule_walkthrough'
                       });
                       setIsMenuOpen(false);
@@ -277,7 +350,7 @@ export default function Header({ headerData, footerData }: HeaderProps) {
                     }}
                     className="w-full"
                   >
-                    <span>{headerData?.ctaButton?.text || cta.primaryButtonText}</span>
+                    <span>Join Waiting List</span>
                   </Button>
                 </div>
               )}

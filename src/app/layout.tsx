@@ -15,8 +15,78 @@ const manrope = Manrope({ subsets: ['latin'], variable: '--font-manrope' })
 const geist = GeistSans
 
 export const metadata: Metadata = {
-  title: 'Zynva',
-  description: 'All in one solution helping business',
+  title: {
+    default: 'Zynva - All-in-One Business Management Software for Clinics',
+    template: '%s | Zynva',
+  },
+  description: 'Manage patient visits, track revenue, monitor expenses, and control inventory all from one smart dashboard. Zynva is the complete business management solution for clinics and medical practices.',
+  keywords: [
+    'clinic management software',
+    'patient management system',
+    'medical practice software',
+    'revenue tracking software',
+    'expense management',
+    'inventory management for clinics',
+    'business insights dashboard',
+    'staff management software',
+    'billing software for clinics',
+    'PDF invoice generator',
+    'healthcare business software',
+    'practice management system',
+    'medical office software',
+    'clinic administration software',
+    'patient data management',
+    'appointment management',
+    'medical billing software',
+    'healthcare analytics',
+    'clinic operations software',
+    'all-in-one clinic software',
+  ],
+  authors: [{ name: 'Zynva' }],
+  creator: 'Zynva',
+  publisher: 'Zynva',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://zynva.com'),
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: '/',
+    title: 'Zynva - All-in-One Business Management Software for Clinics',
+    description: 'Manage patient visits, track revenue, monitor expenses, and control inventory all from one smart dashboard. Complete business management solution for clinics.',
+    siteName: 'Zynva',
+    images: [
+      {
+        url: '/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Zynva - All-in-One Business Management Software',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Zynva - All-in-One Business Management Software for Clinics',
+    description: 'Manage patient visits, track revenue, monitor expenses, and control inventory all from one smart dashboard.',
+    images: ['/og-image.jpg'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   icons: {
     icon: [
       { url: '/favicon.ico' },
@@ -32,6 +102,7 @@ export const metadata: Metadata = {
     ],
   },
   manifest: '/site.webmanifest',
+  category: 'healthcare software',
 }
 
 async function getLayoutData(language: string = 'en') {

@@ -147,7 +147,7 @@ export default function TestimonialsSection() {
         {cta.scheduleLink && (
           <div className="text-center flex justify-center pt-4">
             <Button 
-              type="primaryV3"
+              type="animated"
               link="#cta-section"
               onClick={() => {
                 trackButtonClick('testimonials_section_walkthrough', { 
