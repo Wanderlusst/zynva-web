@@ -135,7 +135,7 @@ export default async function RootLayout({
         <PostHogProvider>
           <CTAProvider customCTA={{
             formId: ctaSection?.formId,
-            scheduleLink: ctaSection?.scheduleLink
+            scheduleLink: ctaSection?.scheduleLink?.replace(/opal-voice/gi, 'zynva')?.replace(/opalvoice\.io/gi, 'zynva.com')
           }}>
             <div className="min-h-screen">
               <Header headerData={header} footerData={footer} />

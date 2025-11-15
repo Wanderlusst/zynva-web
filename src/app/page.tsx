@@ -20,7 +20,7 @@ export async function generateMetadata(): Promise<Metadata> {
     return generateSEOMetadata(
       homepageData.seoSettings,
       'Zynva - All-in-One Business Management Software for Clinics',
-      
+      fallbackDescription
     )
   } catch (error) {
     console.error('Error generating metadata:', error)
@@ -87,7 +87,7 @@ export default async function Home() {
     <>
       <HeroSection heroSectionData={data.heroSection as any} />
       <ServicesSection />
-      <ProcessSection />
+      {/* <ProcessSection /> */}
       <TestimonialsSection />
       <CTASection />
       {/* { <FAQSection faqSectionData={data.faqSection} faqData={data.faqData} />} */}

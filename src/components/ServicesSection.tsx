@@ -154,7 +154,7 @@ export default function ServicesSection() {
                   </h3>
 
                   {/* Options */}
-                  <p className="font-manrope font-medium text-base text-black/60 leading-normal tracking-[-0.24px]  overflow-hidden">
+                  <p className="font-manrope font-medium text-base text-black/60 leading-normal tracking-[0.6px]  overflow-hidden">
                     {service.options}
                   </p>
                 </>

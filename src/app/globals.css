@@ -524,9 +524,9 @@ fieldset .hs-form-field label {
 }
 
 .animated-button:hover {
-  background: #ffd9cf;
-  color: #181818;
-  box-shadow: 0 0 25px #fec1958c;
+  background: #037a55;
+  color: white;
+  box-shadow: 0 0 25px #037a55;
 }
 
 .animated-button:hover .star-1 {

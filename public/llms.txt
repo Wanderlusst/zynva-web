@@ -6,7 +6,7 @@
 name: Zynva
 tagline: All-in-One Business Management Software for Clinics
 url: https://zynva.com
-contact: zynva@gmail.com
+contact: thezynva@gmail.com
 
 [meta]
 description: Manage patient visits, track revenue, monitor expenses, and control inventory all from one smart dashboard. Zynva is the complete business management solution for clinics and medical practices.
@@ -63,7 +63,7 @@ cta: Get early access
 ## FOOTER
 description: All-in-one business management software for clinics. Manage patients, track revenue, monitor expenses, and control inventory from one smart dashboard.
 contact:
-  email: zynva@gmail.com
+  email: thezynva@gmail.com
   phone: +91-9876543210
 social:
   - LinkedIn
